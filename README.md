@@ -71,3 +71,6 @@ docker run --rm --user $(id -u):$(id -g) \
   --z-slice 9 \
   --output-file /home/celltypes_reg001_X04_Y03.csv
 ```
+
+For inputs with many cells, consider using the `--gpus` flag to accelerate prediction
+(if available).
