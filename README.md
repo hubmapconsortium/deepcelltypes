@@ -5,7 +5,7 @@ classification model.
 
 The `deepcelltypes` model requires a multiplexed image and a
 corresponding segmentation mask; the latter can be generated with
-Mesmer via [`deepcell-applications`](https://github.com/vanvalenlab/deepcell-applications)
+Mesmer via [`deepcell-applications`](https://github.com/vanvalenlab/deepcell-applications).
 The output of the model is a `.csv` file with four columns:
 Cell mask ID (int), Cell centroid x, y in pix coords (float), and the
 predicted cell type (string).
@@ -16,7 +16,7 @@ Hickey CODEX data on Hubmap; sepcifically the `HBM742.NHHQ.357` dataset.
 ## Setup
 
 The recommended way to run the model is via docker. As this model is
-not yet publicly available, the container must be built:
+not yet publicly available, the image must be built:
 
 ```bash
 docker build -f Dockerfile -t vanvalenlab/deepcelltypes-hubmap .
@@ -62,7 +62,7 @@ serves as the output location for the celltype prediction `csv`.
 The following applies the model to the CODEX slice at X=4, Y=3, Z=9:
 
 ```bash
-$ docker run --rm --user $(id -u):$(id -g) \
+docker run --rm --user $(id -u):$(id -g) \
   -v $HOME:/home -v /data/HBM742.NHHQ.357:/data \
   vanvalenlab/deepcelltypes-hubmap \
   --data-dir /data \
