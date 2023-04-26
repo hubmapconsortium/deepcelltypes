@@ -3,3 +3,5 @@ scipy
 scikit-image
 tensorflow
 tifffile
+pyyaml
+click
