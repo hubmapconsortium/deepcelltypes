@@ -96,7 +96,7 @@ def hickey_channel_dict_to_multiplex_array(img_dict, master_channel_list):
 )
 @click.option(
     "--z-slice",
-    default=1,
+    default=None,
     help="Which z-slice in the image to run the 2D celltype prediction on"
 )
 @click.option(
@@ -131,7 +131,9 @@ def hickey_main(data_dir, image_fname, segmask, z_slice, output_file):
     # Convert CODEX data on hubmap to model input
     orig_img = tff.imread(data_file)
     # Only run prediction on one z-slice at a time
-    img = orig_img[:, z_slice, ...]
+    img = orig_img[:, z_slice, ...] if z_slice is not None else orig_img
+    # At this point, the image dims should be (cyc, ch, w, h)
+    assert len(img.shape) == 4
     shp = img.shape
     img = img.reshape((shp[0] * shp[1], *shp[2:]))  # Unravel the channel/cycle dimensions
     # Load channel metadata - TODO: hardcoded assuming CODEX format
