@@ -3,5 +3,6 @@ scipy
 scikit-image
 tensorflow
 tifffile
+ome_types
 pyyaml
 click
