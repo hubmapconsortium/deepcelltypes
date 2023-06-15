@@ -1,10 +1,11 @@
 class: CommandLineTool
 cwlVersion: v1.2
-baseCommand: ["python", "../main.py"]
+baseCommand: ["python3", "../main.py"]
 
 requirements:
   DockerRequirement:
     dockerImageId: vanvalenlab/deepcelltypes-hubmap:latest
+    dockerOutputDirectory: /output
 
 inputs:
   data_dir:
@@ -30,4 +31,4 @@ outputs:
     label: CSV file containing cell-type predictions from deepcelltypes
     type: File
     outputBinding:
-      glob: celltype_predictions.csv
+      glob: /output/deepcelltypes_predictions.csv

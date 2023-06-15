@@ -79,17 +79,7 @@ def get_neighbor_masks(mask, cbox, cell_idx):
     default=None,
     help="Path to .tif file containing the segmentation mask."
 )
-@click.option(
-    "--z-slice",
-    default=None,
-    help="Which z-slice in the image to run the 2D celltype prediction on"
-)
-@click.option(
-    "--output-file",
-    default="celltype_predictions.csv",
-    help="Name of output csv file containing the celltype predictions",
-)
-def hickey_main(data_dir, image_fname, segmask, z_slice, output_file):
+def pipeline_main(data_dir, image_fname, segmask):
     import tensorflow as tf
     from pathlib import Path
     import yaml
@@ -255,7 +245,7 @@ def hickey_main(data_dir, image_fname, segmask, z_slice, output_file):
 
     # Save in requested format
     centroids = np.asarray([prop.centroid for prop in props])
-    with open(output_file, "w") as fh:
+    with open("deepcelltypes_predictions.csv", "w") as fh:
         for i, (centroid, ct) in enumerate(zip(centroids, cell_type_predictions)):
             lbl_idx = i + 1
             x, y = centroid
@@ -263,4 +253,4 @@ def hickey_main(data_dir, image_fname, segmask, z_slice, output_file):
 
 
 if __name__ == "__main__":
-    hickey_main()
+    pipeline_main()
