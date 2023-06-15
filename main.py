@@ -108,8 +108,8 @@ def hickey_main(data_dir, image_fname, segmask, z_slice, output_file):
     mask_path = data_dir / f"pipeline_output/mask/{segmask}"
 
     # Get model channels and cell types
-    model_dir = Path("model/saved_model")
-    config_path = Path("model/config.yaml")
+    model_dir = Path("../model/saved_model")
+    config_path = Path("../model/config.yaml")
     with open(config_path, "r") as fh:
         model_config = yaml.load(fh, yaml.Loader)
     master_channel_lst = model_config["channels"]

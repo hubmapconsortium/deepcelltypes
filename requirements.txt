@@ -6,3 +6,4 @@ tifffile
 ome_types
 pyyaml
 click
+cwltool
