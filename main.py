@@ -153,7 +153,9 @@ def pipeline_main(data_dir, image_fname, segmask):
 
     model_output = []
 
-    for prop in props:
+    total_num_cells = len(props)
+    for prop_idx, prop in enumerate(props):
+        curr_cell = prop_idx + 1
         label = prop.label
         delta = crop_size // 2
         cbox = get_crop_box(prop.centroid, delta)
@@ -211,9 +213,9 @@ def pipeline_main(data_dir, image_fname, segmask):
         label_lst.append(label)
         real_len_lst.append(raw_patch.shape[0])
 
-        # TODO: Fix batching so that batches < batch_size are not dropped
-        batch_size = len(props)
-        if len(appearances_list) == batch_size:
+        # TODO: Make batch_size configurable?
+        batch_size = 2000
+        if (curr_cell % batch_size == 0) or (curr_cell == total_num_cells):
             appearances_list = tf.convert_to_tensor(appearances_list)
             padding_mask_lst = tf.convert_to_tensor(padding_mask_lst)
             channel_names_lst = tf.convert_to_tensor(channel_names_lst)
@@ -226,7 +228,9 @@ def pipeline_main(data_dir, image_fname, segmask):
                 "channel_names": channel_names_lst,
                 "cell_idx_label": label_lst,
                 "real_len": real_len_lst,
-                "inpaint_channel_name": tf.convert_to_tensor(["None"] * batch_size)
+                "inpaint_channel_name": tf.convert_to_tensor(
+                    ["None"] * appearances_list.shape[0]
+                ),
             }
 
             model_output.append(ctm.predict(inp))
