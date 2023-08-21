@@ -6,6 +6,7 @@ from skimage.exposure import rescale_intensity, equalize_adapthist
 from skimage.measure import regionprops
 from tensorflow.keras.models import load_model
 import click
+import json
 
 def histogram_normalization(image, kernel_size=None):
     """
@@ -105,11 +106,16 @@ def pipeline_main(data_dir, image_fname, segmask):
     master_channel_lst = model_config["channels"]
     master_cell_types = np.asarray(model_config["cell_types"])
 
+    # Store info on channel mappings for post-evaluation
+    marker_info = {}
+
     # Convert pipeline output image on hubmap to model input
     orig_img = tff.imread(data_file)
     # Load channel info from metadata
     img_metadata = from_tiff(data_file)
     ch_names = [ch.name for ch in img_metadata.images[0].pixels.channels]
+    marker_info["img_marker_panel"] = ch_names
+    marker_info["model_marker_panel"] = master_channel_lst
     # Drop channels not used by model | TODO: standardize
     # NOTE: make all keys upper-case for easier matching and set-like lookups
     master_channels = {ch.upper(): ch for ch in master_channel_lst}
@@ -120,6 +126,14 @@ def pipeline_main(data_dir, image_fname, segmask):
             channel_lst.append(master_channels[key])
             img.append(orig_img[idx, 0, ...].T)
     multiplex_img = np.asarray(img)
+    marker_info["intersection"] = list(
+        set(master_channels) & {ch.upper() for ch in ch_names}
+    )
+    assert len(marker_info["intersection"]) == multiplex_img.shape[0]
+
+    # Save marker info metadata
+    with open("marker_info.json", "w") as fh:
+        json.dump(marker_info, fh)
 
     class_X = multiplex_img.T.astype(np.float32)
     kernel_size = 128

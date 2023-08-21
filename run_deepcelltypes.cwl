@@ -32,3 +32,8 @@ outputs:
     type: File
     outputBinding:
       glob: /output/deepcelltypes_predictions.csv
+  marker_info:
+    label: JSON file containing metadata about marker panels used for prediction
+    type: File
+    outputBinding:
+      glob: /output/marker_info.json
