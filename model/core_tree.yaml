@@ -1,0 +1,60 @@
+Cell:
+      Immune:
+            Lymphocyte:
+                  Tcell:
+                        Treg: {}
+                        CD4T: {}
+                        CD8T: {}
+                        NKT: {}
+                  Bcell:
+                        Plasma: {}
+                        Centroblast: {}
+                        Centrocyte: {}
+                        Plasmablast: {}
+                  NK: {}
+            Myeloid:
+                  Dendritic: {}
+                  Granulocyte:
+                        Mast: {}
+                        Neutrophil: {}
+                        Eosinophil: {}
+                        Basophil: {}
+                  Macrophage:
+                        M1Macrophage: {}
+                        M2Macrophage: {}
+                  Monocyte: {}
+      Epithelial:
+            Myoepithelial: {}
+            Secretory:
+                  Goblet: {}
+                  Paneth: {}
+                  Acinar: {}
+            Enterocyte: {}
+            ICC: {}
+            Podocyte: {}
+            Hepatocyte: {}
+            Mesothelial: {}
+            Club: {}
+      Endothelial:
+            LymphaticEndothelial: {}
+            BloodVesselEndothelial: {}
+      Stromal:
+            Fibroblast:
+                  Myofibroblast: {}
+                  Stellate: {}
+            Pericyte:
+                  Mesangial: {}
+            Muscle:
+                  SmoothMuscle: {}
+      Endocrine:
+            Neuroendocrine: {}
+      Nerve:
+            Glia:
+                  Astrocyte: {}
+            Neuron: {}
+      Tumor: {}
+      EVT: {}
+      Background: {}
+      Unknown: {}
+      TransitAmplifying: {}
+      GiantCell: {}
