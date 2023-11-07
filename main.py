@@ -4,9 +4,13 @@ import tifffile as tff
 from ome_types import from_tiff
 from skimage.exposure import rescale_intensity, equalize_adapthist
 from skimage.measure import regionprops
+from skimage.transform import resize
 from tensorflow.keras.models import load_model
 import click
 import json
+
+MAX_NUM_CHANNELS = 52
+
 
 def histogram_normalization(image, kernel_size=None):
     """
@@ -38,9 +42,9 @@ def histogram_normalization(image, kernel_size=None):
     return image
 
 
-def pad_cell(X: np.ndarray, y: np.ndarray,  crop_size: int):
+def pad_cell(X: np.ndarray, y: np.ndarray, crop_size: int):
     delta = crop_size // 2
-    X = np.pad(X, ((delta, delta), (delta, delta), (0,0)))
+    X = np.pad(X, ((delta, delta), (delta, delta), (0, 0)))
     y = np.pad(y, ((delta, delta), (delta, delta)))
     return X, y
 
@@ -62,10 +66,25 @@ def get_neighbor_masks(mask, cbox, cell_idx):
     cell_view = mask[minr:maxr, minc:maxc]
     binmask_cell = (cell_view == cell_idx).astype(np.int32)
 
-    binmask_neighbors = (cell_view != cell_idx).astype(np.int32) * (cell_view != 0).astype(
-        np.int32
-    )
-    return np.stack([binmask_cell, binmask_neighbors])
+    binmask_neighbors = (cell_view != cell_idx).astype(np.int32) * (
+        cell_view != 0
+    ).astype(np.int32)
+    return binmask_cell, binmask_neighbors
+
+
+def select_raw_combine_mask(raw, mask, channel_mask):
+    new_raw = raw[channel_mask]  # (C_new, H, W)
+    raw_aug_mask = np.concatenate(
+        [
+            np.expand_dims(new_raw, axis=-1),  # (C_new, H, W, 1)
+            np.tile(
+                np.expand_dims(mask, axis=0), (len(new_raw), 1, 1, 1)
+            ),  # (C_new, H, W, 2)
+        ],
+        axis=-1,
+    )  # (C_new, H, W, 3)
+
+    return raw_aug_mask
 
 
 @click.command()
@@ -99,12 +118,63 @@ def pipeline_main(data_dir, image_fname, segmask):
     mask_path = data_dir / f"pipeline_output/mask/{segmask}"
 
     # Get model channels and cell types
-    model_dir = Path("../model/saved_model")
+    model_dir = Path("../model/saved_model_updated")
     config_path = Path("../model/config.yaml")
+    channel_mapping_path = Path("../model/channel_mapping.yaml")
     with open(config_path, "r") as fh:
         model_config = yaml.load(fh, yaml.Loader)
     master_channel_lst = model_config["channels"]
-    master_cell_types = np.asarray(model_config["cell_types"])
+
+    with open(channel_mapping_path, "r") as fh:
+        channel_mapping = yaml.load(fh, yaml.Loader)
+
+    mapper_dict = {
+        "Acinar": 1,
+        "Astrocyte": 2,
+        "Bcell": 3,
+        "BloodVesselEndothelial": 4,
+        "CD4T": 5,
+        "CD8T": 6,
+        "Dendritic": 7,
+        "EVT": 8,
+        "Endocrine": 9,
+        "Endothelial": 10,
+        "Enterocyte": 11,
+        "Epithelial": 12,
+        "Fibroblast": 13,
+        "GiantCell": 14,
+        "Goblet": 15,
+        "ICC": 16,
+        "Immune": 17,
+        "LymphaticEndothelial": 18,
+        "Lymphocyte": 19,
+        "M1Macrophage": 20,
+        "M2Macrophage": 21,
+        "Macrophage": 22,
+        "Mast": 23,
+        "Monocyte": 24,
+        "Muscle": 25,
+        "Myeloid": 26,
+        "Myoepithelial": 27,
+        "Myofibroblast": 28,
+        "NK": 29,
+        "NKT": 30,
+        "Nerve": 31,
+        "Neuroendocrine": 32,
+        "Neuron": 33,
+        "Neutrophil": 34,
+        "Paneth": 35,
+        "Plasma": 36,
+        "Secretory": 37,
+        "SmoothMuscle": 38,
+        "Stromal": 39,
+        "Tcell": 40,
+        "TransitAmplifying": 41,
+        "Treg": 42,
+        "Tumor": 43,
+        "Unknown": 44,
+    }
+    mapper_dict_reversed = {v: k for k, v in mapper_dict.items()}
 
     # Store info on channel mappings for post-evaluation
     marker_info = {}
@@ -116,33 +186,32 @@ def pipeline_main(data_dir, image_fname, segmask):
     ch_names = [ch.name for ch in img_metadata.images[0].pixels.channels]
     marker_info["img_marker_panel"] = ch_names
     marker_info["model_marker_panel"] = master_channel_lst
-    # Drop channels not used by model | TODO: standardize
-    # NOTE: make all keys upper-case for easier matching and set-like lookups
-    master_channels = {ch.upper(): ch for ch in master_channel_lst}
-    channel_lst, img = [], []
+    channel_lst = []
+    channel_mask = []
     for idx, ch in enumerate(ch_names):
-        key = ch.upper()
-        if key in master_channels:
-            channel_lst.append(master_channels[key])
-            img.append(orig_img[idx, 0, ...].T)
-    multiplex_img = np.asarray(img)
-    marker_info["intersection"] = list(
-        set(master_channels) & {ch.upper() for ch in ch_names}
-    )
-    assert len(marker_info["intersection"]) == multiplex_img.shape[0]
+        key = channel_mapping[ch]
+        if key in master_channel_lst:
+            channel_lst.append(key)
+            channel_mask.append(True)
+        else:
+            channel_mask.append(False)
+
+    print(channel_lst)
+    print(orig_img.shape)
+    multiplex_img = np.asarray(orig_img).transpose(1, 2, 0)
 
     # Save marker info metadata
     with open("marker_info.json", "w") as fh:
         json.dump(marker_info, fh)
 
-    class_X = multiplex_img.T.astype(np.float32)
+    class_X = multiplex_img.astype(np.float32)
+    print("class_X.shape", class_X.shape)
     kernel_size = 128
-    crop_size = 64 
+    crop_size = 64
     rs = 32
-    num_channels = 32 # minimum of all dataset channel lengths
     # check master list against channel_lst
     assert not set(channel_lst) - set(master_channel_lst)
-    assert len(channel_lst) == class_X.shape[-1]
+    # assert len(channel_lst) == class_X.shape[-1]
 
     ctm = load_model(model_dir, compile=False)
 
@@ -173,59 +242,59 @@ def pipeline_main(data_dir, image_fname, segmask):
         label = prop.label
         delta = crop_size // 2
         cbox = get_crop_box(prop.centroid, delta)
-        neighbor = get_neighbor_masks(y, cbox, prop.label)
+        self_mask, neighbor_mask = get_neighbor_masks(
+            y, cbox, prop.label
+        )  # (H, W), (H, W)
+
         # yield neighbor, cbox, prop.label, int(prop.mean_intensity)
 
         minr, minc, maxr, maxc = cbox
-        raw_patch = X[minr:maxr, minc:maxc, :]
-        raw_patch = raw_patch.transpose((2, 0, 1))[..., None]  # (C, H, W, 1)
-        raw_patch = tf.image.resize(raw_patch, (rs, rs))
-        neighbor = tf.image.resize(neighbor[..., None], (rs, rs))[..., 0]
+        raw_patch = X[minr:maxr, minc:maxc, :]  # (H, W, C)
 
+        raw_patch = resize(raw_patch, (rs, rs), preserve_range=True)  # (H, W, C)
+        self_mask = resize(self_mask, (rs, rs), preserve_range=True)  # (H, W)
+        neighbor_mask = resize(neighbor_mask, (rs, rs), preserve_range=True)  # (H, W)
 
-        padding_len = num_channels - raw_patch.shape[0]
-        neighbor = tf.reshape(
-            neighbor,
-            (*neighbor.shape, 1),
-        )
-        neighbor = tf.transpose(neighbor, [3, 1, 2, 0])
-        # rohit figure out neighbor
+        self_mask = (self_mask > 0.5).astype(np.int32)
+        neighbor_mask = (neighbor_mask > 0.5).astype(np.int32)
 
-        neighbor = tf.tile(neighbor, [tf.shape(raw_patch)[0], 1, 1, 1])
-        image_aug_neighbor = tf.concat(
-            [raw_patch, tf.cast(neighbor, dtype=tf.float32)], axis=-1
-        )
+        raw_patch = np.transpose(raw_patch, (2, 0, 1))  # (C, H, W)
+        # raw_patch = np.expand_dims(raw_patch, axis=-1) # (1, C, H, W)
 
-        paddings_mask = tf.constant([[0, 1], [0, 0], [0, 0], [0, 0]])
-        paddings = paddings_mask * padding_len
+        mask = np.stack([self_mask, neighbor_mask], axis=-1)  # (H, W, 2)
 
+        mask1 = mask.astype(np.float32)
+        assert (mask == mask1).all()
 
-        appearances = tf.pad(
-            image_aug_neighbor, paddings, "CONSTANT", constant_values=-1.0
-        )
+        app = select_raw_combine_mask(raw_patch, mask1, channel_mask)
 
-        channel_names = tf.concat(
-            [channel_lst, tf.repeat([b"None"], repeats=padding_len)], axis=0
-        )
+        num_channels = app.shape[0]
 
-        mask_vec = tf.concat(
-            [
-                tf.repeat([True], repeats=raw_patch.shape[0]),
-                tf.repeat([False], repeats=padding_len),
-            ],
-            axis=0,
-        )
+        # padding
+        padding_length = MAX_NUM_CHANNELS - num_channels
 
-        mask_vec = tf.cast(mask_vec, tf.float32)
-        m1, m2 = tf.meshgrid(mask_vec, mask_vec)
-        padding_mask = m1 * m2
+        paddings = np.array([[0, padding_length], [0, 0], [0, 0], [0, 0]])
+
+        app_padded = np.pad(
+            app, paddings, mode="constant", constant_values=0
+        )  # (MAX_NUM_CHANNELS, H, W, 3)
+
+        channel_list_padded = channel_lst + ["None"] * padding_length
+
+        padding_mask = np.zeros((MAX_NUM_CHANNELS, MAX_NUM_CHANNELS), dtype=np.int32)
+        padding_mask[:num_channels, :num_channels] = 1
+
+        padding_mask = np.pad(padding_mask, [[1, 0], [1, 0]])  # for class_token
+
+        assert app_padded.dtype == np.float32
+        assert padding_mask.dtype == np.int32
 
         # append each of these to list, conver to tensor
-        appearances_list.append(appearances)
+        appearances_list.append(app_padded)
         padding_mask_lst.append(padding_mask)
-        channel_names_lst.append(channel_names)
+        channel_names_lst.append(channel_list_padded)
         label_lst.append(label)
-        real_len_lst.append(raw_patch.shape[0])
+        real_len_lst.append(num_channels)
 
         # TODO: Make batch_size configurable?
         batch_size = 2000
@@ -242,9 +311,6 @@ def pipeline_main(data_dir, image_fname, segmask):
                 "channel_names": channel_names_lst,
                 "cell_idx_label": label_lst,
                 "real_len": real_len_lst,
-                "inpaint_channel_name": tf.convert_to_tensor(
-                    ["None"] * appearances_list.shape[0]
-                ),
             }
 
             model_output.append(ctm.predict(inp))
@@ -256,10 +322,12 @@ def pipeline_main(data_dir, image_fname, segmask):
             real_len_lst = []
 
     # Unpack batches, extracting only predictions
-    logits = np.concatenate([batch[0] for batch in model_output])
+    logits = np.concatenate([batch["celltypes"] for batch in model_output])
     pred_idx = np.argmax(sp.special.softmax(logits, axis=1), axis=1)
     # NOTE: master_cell_types[0] == background
-    cell_type_predictions = master_cell_types[1:][pred_idx]
+    cell_type_predictions = [
+        mapper_dict_reversed[idx + 1] for idx in pred_idx
+    ]  # index starts from 1
 
     # Save in requested format
     centroids = np.asarray([prop.centroid for prop in props])
