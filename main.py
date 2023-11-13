@@ -116,8 +116,6 @@ def pipeline_main(data_dir, image_fname, segmask):
 
     model_output = []
 
-    props = props[:5000]
-
     total_num_cells = len(props)
     for prop_idx, prop in enumerate(props):
         curr_cell = prop_idx + 1
