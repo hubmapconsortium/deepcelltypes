@@ -51,7 +51,7 @@ def pipeline_main(data_dir, image_fname, segmask):
     mask_path = data_dir / f"pipeline_output/mask/{segmask}"
 
     # Get model channels and cell types
-    model_dir = Path("../model/saved_model")
+    model_dir = Path("../model/saved_model_updated")
     channel_mapping_path = Path("../model/channel_mapping.yaml")
 
     with open(channel_mapping_path, "r") as fh:
@@ -177,13 +177,14 @@ def pipeline_main(data_dir, image_fname, segmask):
         real_len_lst.append(num_channels)
 
         # TODO: Make batch_size configurable?
-        batch_size = 2000
+        batch_size = 500
         if (curr_cell % batch_size == 0) or (curr_cell == total_num_cells):
             appearances_list = tf.convert_to_tensor(appearances_list)
             padding_mask_lst = tf.convert_to_tensor(padding_mask_lst)
             channel_names_lst = tf.convert_to_tensor(channel_names_lst)
             label_lst = tf.convert_to_tensor(label_lst)
             real_len_lst = tf.convert_to_tensor(real_len_lst)
+            domain_name = tf.convert_to_tensor(["CODEX"] * len(label_lst))
 
             inp = {
                 "appearances": appearances_list,
@@ -191,6 +192,7 @@ def pipeline_main(data_dir, image_fname, segmask):
                 "channel_names": channel_names_lst,
                 "cell_idx_label": label_lst,
                 "real_len": real_len_lst,
+                "domain_name": domain_name,
             }
 
             model_output.append(ctm.predict(inp))
