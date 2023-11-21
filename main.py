@@ -8,6 +8,8 @@ from tensorflow.keras.models import load_model
 import click
 import json
 
+import tensorflow as tf
+
 from deepcelltypes_kit.config import DCTConfig
 from deepcelltypes_kit.image_funcs import (
     histogram_normalization,
@@ -18,6 +20,9 @@ from deepcelltypes_kit.image_funcs import (
 )
 
 dct_config = DCTConfig()
+
+physical_devices = tf.config.list_physical_devices('GPU')
+tf.config.set_visible_devices(physical_devices[1:],'GPU') # only using gpu1
 
 
 @click.command()
