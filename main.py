@@ -68,7 +68,7 @@ def pipeline_main(data_dir, image_fname, segmask):
     marker_info = {}
 
     # Convert pipeline output image on hubmap to model input
-    orig_img = tff.imread(data_file)
+    orig_img = tff.imread(data_file).squeeze()
     # Load channel info from metadata
     img_metadata = from_tiff(data_file)
     ch_names = [ch.name for ch in img_metadata.images[0].pixels.channels]
