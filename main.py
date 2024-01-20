@@ -16,7 +16,7 @@ from deepcelltypes_kit.image_funcs import (
     pad_cell,
     get_crop_box,
     get_neighbor_masks,
-    select_raw_combine_mask,
+    combine_raw_mask,
 )
 
 dct_config = DCTConfig()
@@ -151,7 +151,10 @@ def pipeline_main(data_dir, image_fname, segmask):
         mask1 = mask.astype(np.float32)
         assert (mask == mask1).all()
 
-        app = select_raw_combine_mask(raw_patch, mask1, channel_mask)
+        raw_patch_aug = np.expand_dims(raw_patch[channel_mask, ...], axis=0)
+        mask_aug = np.expand_dims(mask1, axis=0)
+        app = combine_raw_mask(raw_patch_aug, mask_aug)
+        app = np.squeeze(app)
 
         num_channels = app.shape[0]
 
