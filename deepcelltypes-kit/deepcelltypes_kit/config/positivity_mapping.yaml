@@ -1,0 +1,114 @@
+Lymphocyte:
+    - CD45
+Tcell:
+    - CD45
+    - CD3
+Treg:
+    - CD45
+    - CD8
+    - CD3
+    - CD4
+    - FoxP3
+CD4T:
+    - CD45
+    - CD3
+    - CD4
+CD8T:
+    - CD45
+    - CD3
+    - CD8
+NKT:
+    - CD45
+Bcell:
+    - CD45
+    - CD19
+    - CD20
+    - HLA-Class-2
+Centroblast:
+    - CD45
+    - Ki67
+Centrocyte:
+    - CD45
+Plasmablast:
+    - CD45
+Dendritic:
+    - CD11c
+    - CD209
+    - HLA-Class-2
+Plasma:
+    - CD45
+    - CD38
+    - IgA
+NK:
+    - CD45
+    - CD94
+    - CD56
+Endothelial:
+    - CD31
+Neutrophil:
+    - CD45
+    - CD15
+    - CD44
+Basophil:
+    - CD45
+    - CD11c
+    - c-kit
+Eosinophil:
+    - CD45
+    - CD15
+Mast:
+    - CD45
+    - c-kit
+M1Macrophage:
+    - CD68
+    - iNOS
+M2Macrophage:
+    - CD206
+    - CD163
+Monocyte:
+    - CD45
+    - CD14
+    - CD11b
+    - CD16
+    - CD31
+Goblet:
+    - MUC2
+Stromal:
+    - Vimentin
+Fibroblast:
+    - FAP
+    - Vimentin
+    - SMA
+Enterocyte:
+    - CK7
+    - MUC1
+    - CDX2
+SmoothMuscle:
+    - SMA
+Endocrine:
+    - CgA
+Neuroendocrine:
+    - CgA
+    - Synaptophysin
+Apoptotic:
+    - c-Caspase-3
+TransitAmplifying:
+    - Ki67
+Astrocyte:
+    - GFAP
+Myoepithelial:
+    - P63
+EVT:
+    - HLA-G
+Acinar:
+    -  Amylase
+Paneth:
+    - DEFAL5
+Stellate:
+    - GFAP
+Mesangial:
+    - CD90
+Podocyte:
+    - Synaptophysin
+ICC: 
+    - CD117

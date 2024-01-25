@@ -1,0 +1,209 @@
+Tissue-Breast/Danenberg_BreastCancer_IMC:
+  CD15^{+}: 
+    - CD15
+  CD38^{+} lymphocytes:
+    - CD38
+  CD4^{+} T cells: 
+    - CD4
+  CD4^{+} T cells & APCs:
+    - CD4
+  CD57^{+}: 
+    - CD57
+  CD8^{+} T cells: 
+    - CD8
+  CK8-18^{+} ER^{hi}: 
+    - CK8-18
+  CK^{+} CXCL12^{+}: 
+    - PanCK
+    - CXCL12
+  ER^{hi}CXCL12^{+}: 
+    - ER
+    - CXCL12
+  Ep CD57^{+}: 
+    - CD57
+  Ep Ki67^{+}: 
+    - Ki67
+  Fibroblasts FSP1^{+}: 
+    - FSP1
+  HER2^{+}: 
+    - HER2
+  Ki67^{+}: 
+    - Ki67
+  MHC I^{hi}CD57^{+}: 
+    - HLA-Class-1
+    - CD57
+  MHC^{hi}CD15^{+}: 
+    - HLA-Class-1
+    - HLA-Class-2
+    - CD15
+  Myofibroblasts PDPN^{+}: 
+    - PDPN
+Tissue-Breast/Jackson_BreastCancer_IMC:
+  CK lo HR hi p53+:
+    - EP2
+    - SP2
+  CK+ HR hi:
+    - PanCK
+    - EP2
+    - SP2
+  CK+ HR lo:
+    - PanCK
+  CK+ HR+:
+    - PanCK
+    - EP2
+    - SP2
+  CK7+:
+    - CK7
+  CK7+ CK hi Ecadh hi:
+    - CK7
+    - PanCK
+    - E-cadherin
+  SMA hi Vimentin hi:
+    - SMA
+    - Vimentin
+  p53+ EGFR+:
+    - p53
+    - EGFR
+Tissue-Breast/Keren_New_MIBI:
+  CD11_CD11c_DCsign_DCs: # there is no CD11 channel
+    - CD11c
+    - CD209
+  CD14_CD11c_DCs:
+    - CD14
+    - CD11c
+  CD206_Mac:
+    - CD206
+  CD4 APC:
+    - CD4
+  CD4 T cell:
+    - CD4
+  CD4 Treg:
+    - CD4
+  CD68_Mac:
+    - CD68
+  CD8 T cell:
+    - CD8
+  Memory_CD4_T_Cells:
+    - CD4
+  Mono_CD14_DR:
+    - CD14
+Tissue-GI/Hartmann_CRC_MIBI:
+  Myeloid_CD11c:
+    - CD11c
+  Myeloid_CD68:
+    - CD68
+Tissue-GI/Hickey_Colon_CODEX:
+  CD57+ Enterocyte:
+    - CD57
+  CD66+ Enterocyte:
+    - CD66
+  CD7+ Immune:
+    - CD7
+  MUC1+ Enterocyte:
+    - MUC1
+Tissue-Lung/McCaffrey_TB_MIBI:
+  CD11b_c_CD206_Mac_Mono:
+    - CD11b
+    - CD11c
+    - CD206
+  CD11c_DC_Mono:
+    - CD11c
+  CD14_Mono:
+    - CD14
+  CD163_Mac:
+    - CD163
+  CD16_CD14_Mono:
+    - CD16
+    - CD14
+  CD206_Mac:
+    - CD206
+  CD209_DC:
+    - CD209
+  CD4_T:
+    - CD4
+  CD68_Mac:
+    - CD68
+  CD8_T:
+    - CD8
+Tissue-Lymph_Node/McCaffrey_TB_MIBI:
+  CD11b_c_CD206_Mac_Mono:
+    - CD11b
+    - CD11c
+    - CD206
+  CD11c_DC_Mono:
+    - CD11c
+  CD14_Mono:
+    - CD14
+  CD163_Mac:
+    - CD163
+  CD16_CD14_Mono:
+    - CD16
+    - CD14
+  CD206_Mac:
+    - CD206
+  CD209_DC:
+    - CD209
+  CD4_T:
+    - CD4
+  CD68_Mac:
+    - CD68
+  CD8_T:
+    - CD8
+Tissue-Nervous/McCaffrey_TB_MIBI:
+  CD11b_c_CD206_Mac_Mono:
+    - CD11b
+    - CD11c
+    - CD206
+  CD11c_DC_Mono:
+    - CD11c
+  CD14_Mono:
+    - CD14
+  CD163_Mac:
+    - CD163
+  CD16_CD14_Mono:
+    - CD16
+    - CD14
+  CD206_Mac:
+    - CD206
+  CD209_DC:
+    - CD209
+  CD4_T:
+    - CD4
+  CD68_Mac:
+    - CD68
+  CD8_T:
+    - CD8
+Tissue-Reproductive/McCaffrey_TB_MIBI:
+  CD11b_c_CD206_Mac_Mono:
+    - CD11b
+    - CD11c
+    - CD206
+  CD11c_DC_Mono:
+    - CD11c
+  CD14_Mono:
+    - CD14
+  CD163_Mac:
+    - CD163
+  CD16_CD14_Mono:
+    - CD16
+    - CD14
+  CD206_Mac:
+    - CD206
+  CD209_DC:
+    - CD209
+  CD4_T:
+    - CD4
+  CD68_Mac:
+    - CD68
+  CD8_T:
+    - CD8
+Tissue-GI/Nolan_Stellar_CODEX:
+  PDPN:
+    - PDPN
+  Squamous_epithelial:
+    - P63
+Tissue-Tonsil/Nolan_Stellar_CODEX:
+  PDPN:
+    - PDPN
+  Squamous_epithelial:
+    - P63

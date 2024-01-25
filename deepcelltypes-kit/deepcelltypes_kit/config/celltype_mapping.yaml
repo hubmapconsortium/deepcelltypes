@@ -1,0 +1,588 @@
+# Tissue-Breast/Danenberg_BreastCancer_IMC: # check single-cell.csv data, epithelial that are from tumor tissues can be identified as tumor cells.
+# B cells: Bcell
+# Basal: Tumor
+# CD15^{+}: Unknown
+# CD38^{+} lymphocytes: Lymphocyte # TODO: Plasma cell, B cell? (CD38 is a marker for Basophil, Plasma cell, B cell, Basophil is not Lymphocyte)
+# CD4^{+} T cells: CD4T
+# CD4^{+} T cells & APCs: Unknown
+# CD57^{+}: Unknown # T cell? (CD57 is a marker for T cell)
+# CD8^{+} T cells: CD8T
+# CK8-18^{+} ER^{hi}: Tumor # CK8-18: epithelial, ER: cancer
+# CK8-18^{hi}CXCL12^{hi}: Tumor # same
+# CK8-18^{hi}ER^{lo}: Epithelial
+# CK^{+} CXCL12^{+}: Tumor
+# CK^{lo}ER^{lo}: Unknown # TODO: ???
+# CK^{lo}ER^{med}: Unknown # TODO: ???
+# CK^{med}ER^{lo}: Unknown # TODO: ???
+# ER^{hi}CXCL12^{+}: Tumor
+# Endothelial: Endothelial
+# Ep CD57^{+}: Tumor
+# Ep Ki67^{+}: Unknown # TODO: Ki67 proliferation marker
+# Fibroblasts: Fibroblast
+# Fibroblasts FSP1^{+}: Fibroblast # TODO: from paper,  FSP1 and PDPN: distinguishing fibroblast subsets
+# Granulocytes: Granulocyte
+# HER2^{+}: Tumor # TODO: epithelial tumor cell?
+# Ki67^{+}: Tumor # TODO: same question as above
+# MHC I & II^{hi}: Unknown # TODO: Antigen processing machinery, meaning APC?
+# MHC I^{hi}CD57^{+}: Unknown # TODO: Tumor??
+# MHC^{hi}CD15^{+}: Unknown # TODO: Tumor??
+# Macrophages: Macrophage
+# Macrophages & granulocytes: Granulocytes
+# Myofibroblasts: Myofibroblast
+# Myofibroblasts PDPN^{+}: Myofibroblast
+# T_{Reg} & T_{Ex}: Tcell # TODO: double check
+Tissue-Breast/Jackson_BreastCancer_IMC:
+    Background: Background
+    Apoptotic: Tumor # Tumor, according to Metacluster_annotations.csv
+    B cell: Bcell
+    Basal CK: Tumor
+    CK lo HR hi p53+: Tumor
+    CK lo HR lo: Tumor
+    CK+ HR hi: Tumor
+    CK+ HR lo: Tumor
+    CK+ HR+: Tumor
+    CK7+: Tumor
+    CK7+ CK hi Ecadh hi: Tumor
+    Endothelial: Endothelial
+    Epithelial low: Tumor
+    Fibronectin hi: Fibroblast
+    Hypoxic: Tumor # Tumor, according to Metacluster_annotations.csv
+    Large elongated: Stromal
+    Macrohage: Macrophage # seems to be a typo
+    Macrophage: Macrophage
+    Myoepithelial: Tumor # Tumor, according to Metacluster_annotations.csv
+    Proliferative: Tumor
+    SMA hi Vimentin hi: Stromal
+    Small circular: Stromal
+    Small elongated: Stromal
+    T & B cells: Lymphocyte
+    T cell: Tcell
+    Vimentin hi: Stromal
+    p53+ EGFR+: Tumor
+Tissue-Breast/Keren_New_MIBI:
+    B cell: Bcell
+    Background: Background
+    CD11_CD11c_DCsign_DCs: Dendritic
+    CD14_CD11c_DCs: Dendritic
+    CD206_Mac: M2Macrophage
+    CD20_neg_B_cells: Bcell
+    CD4 APC: Immune
+    CD4 T cell: CD4T
+    CD4 Treg: Treg
+    CD68_Mac: M1Macrophage
+    CD8 T cell: CD8T
+    Collagen: Unknown # TODO: add collagen? cell???
+    Collagen_sma: Unknown # TODO: same as above?
+    DC sign Mac: Macrophage
+    DCs: Dendritic
+    Follicular_Germinal_B_Cell: Bcell
+    Hevs: Endothelial
+    Immune: Immune
+    Mac: Macrophage
+    Memory_CD4_T_Cells: CD4T
+    Mono_CD14_DR: Monocyte
+    NK cell: NK
+    Neutrophil: Neutrophil
+    SMA: SmoothMuscle
+    Tfh: CD4T # T follicular helper cells, subtype of CD4T
+    Unidentified: Unknown
+    blood vessels: BloodVesselEndothelial
+    tumor: Tumor
+Tissue-Breast/Keren_TNBC_MIBI:
+    Background: Background
+    Bcell: Bcell
+    CD3T: CD4T
+    CD4T: CD4T
+    CD8T: CD8T
+    DC: Dendritic
+    DC_Mono: Myeloid
+    Endothelial: Endothelial
+    FAILED_HARMONIZATION: Unknown
+    Immune_other: Immune
+    Macrophage: Macrophage
+    Mesenchyme: Fibroblast
+    Mono_Neu: Myeloid
+    Neutrophil: Neutrophil
+    Nk: NK
+    Tregs: Treg
+    Tumor: Tumor
+    Unidentified: Unknown
+Tissue-Breast/Liu_Validation_MIBI:
+    B_cell: Bcell
+    Background: Background
+    DC: Dendritic
+    Endothelial: Endothelial
+    Epithelial: Epithelial
+    FAILED_HARMONIZATION: Unknown
+    Fibroblast: Fibroblast
+    Macrophage: Macrophage
+    NK_cell: NK
+    T_cell: Tcell
+Tissue-Breast/Risom_DCIS_MIBI:
+    APC: Immune
+    BACKGROUND: Background
+    BCELL: Bcell
+    CD4T: CD4T
+    CD8T: CD8T
+    DC: Dendritic
+    ENDO: Endothelial
+    FAILED_HARMONIZATION: Unknown
+    FIBROBLAST: Fibroblast
+    IMMUNEOTHER: Immune
+    MACS: Macrophage
+    MAST: Mast
+    MONO: Monocyte
+    MONODC: Myeloid
+    MYOEP: Myoepithelial
+    NEUT: Neutrophil
+    OTHER: Unknown
+    TCELL: Tcell
+    TUMOR: Tumor
+Tissue-GI/Hartmann_CRC_MIBI:
+    Background: Background
+    Endothelial: Endothelial
+    Epithelial: Epithelial
+    Fibroblast: Fibroblast
+    Imm_other: Immune
+    Myeloid_CD11c: Myeloid
+    Myeloid_CD68: Myeloid
+    Tcell_CD4: CD4T
+    Tcell_CD8: CD8T
+    Tumor: Tumor
+    Unspecified: Unknown
+    FAILED_HARMONIZATION: Unknown
+Tissue-GI/Hickey_Colon_CODEX:
+    B: Bcell
+    Background: Background
+    CD4+ T cell: CD4T
+    CD57+ Enterocyte: Enterocyte
+    CD66+ Enterocyte: Enterocyte
+    CD7+ Immune: Lymphocyte
+    CD8+ T: CD8T
+    Cycling TA: TransitAmplifying # TODO: added as a new category, but not sure
+    DC: Dendritic
+    Endothelial: Endothelial
+    Enterocyte: Enterocyte
+    FAILED_HARMONIZATION: Unknown
+    Goblet: Goblet
+    ICC: ICC
+    Lymphatic: LymphaticEndothelial
+    M1 Macrophage: M1Macrophage
+    M2 Macrophage: M2Macrophage
+    MUC1+ Enterocyte: Enterocyte
+    NK: NK
+    Nerve: Nerve
+    Neuroendocrine: Neuroendocrine
+    Neutrophil: Neutrophil
+    Paneth: Paneth
+    Plasma: Plasma
+    Smooth muscle: SmoothMuscle
+    Stroma: Stromal
+    TA: TransitAmplifying
+    Unspecified: Unknown
+Tissue-GI/Keren_GVHD_MIBI:
+    APC: Immune
+    Background: Background
+    Bcell: Bcell
+    BrunnerGland: Unknown # TODO: Secretory?
+    CD3T: Tcell
+    CD4T: CD4T
+    CD8T: CD8T
+    DC: Dendritic
+    Endocrine: Endocrine
+    Endothelial: Endothelial
+    Epithelial: Epithelial
+    Fibroblast: Fibroblast
+    Goblet: Goblet
+    ImmuneOther: Immune
+    Macrophage: Macrophage
+    Mast: Mast
+    Mesenchymal: Stromal
+    Monocyte: Monocyte
+    Muscle: Muscle
+    NK: NK
+    Neuroendocrine: Neuroendocrine
+    Neuron: Neuron
+    Neutrophil: Neutrophil
+    Paneth: Paneth
+    Plasma: Plasma
+    SMV: BloodVesselEndothelial
+    Treg: Treg
+    Unidentified: Unknown
+Tissue-GI/Liu_Validation_MIBI:
+    B_cell: Bcell
+    Background: Background
+    DC: Dendritic
+    Endothelial: Endothelial
+    Epithelial: Epithelial
+    FAILED_HARMONIZATION: Unknown
+    Fibroblast: Fibroblast
+    Macrophage: Macrophage
+    NK_cell: NK
+    T_cell: Tcell
+Tissue-Immune/Liu_Validation_MIBI:
+    B_cell: Bcell
+    Background: Background
+    DC: Dendritic
+    Endothelial: Endothelial
+    Epithelial: Epithelial
+    FAILED_HARMONIZATION: Unknown
+    Fibroblast: Fibroblast
+    Macrophage: Macrophage
+    NK_cell: NK
+    T_cell: Tcell
+Tissue-Lung/McCaffrey_TB_MIBI:
+    Background: Background
+    B_cell: Bcell
+    CD11b_c_CD206_Mac_Mono: Myeloid
+    CD11c_DC_Mono: Myeloid
+    CD14_Mono: Monocyte
+    CD163_Mac: M2Macrophage
+    CD16_CD14_Mono: Monocyte
+    CD206_Mac: M2Macrophage
+    CD209_DC: Dendritic
+    CD4_T: CD4T
+    CD68_Mac: M1Macrophage
+    CD8_T: CD8T
+    Treg: Treg
+    Unidentified: Unknown
+    endothelial: Endothelial
+    epithelial: Epithelial
+    fibroblast: Fibroblast
+    gdT_cell: Tcell
+    giant_cell: GiantCell
+    imm_other: Immune
+    mast: Mast
+    neutrophil: Neutrophil
+Tissue-Lung/Sorin_Lung_IMC:
+    B cell: Bcell
+    Background: Background
+    Cancer: Tumor
+    Classical monocyte: Monocyte
+    DCs cell: Dendritic
+    Endothelial cell: Endothelial
+    Intermediate monocyte: Monocyte
+    M1-like macrophage (classical): M1Macrophage
+    M2-like macrophage (alternative): M2Macrophage
+    Mast cell: Mast
+    NK cell: NK
+    Neutrophils: Neutrophil
+    Non-classical monocyte: Monocyte
+    T cytotoxic: CD8T
+    T helper: CD4T
+    T other (CD4- CD8-): Tcell
+    T reg: Treg
+    Unidentified: Unknown
+Tissue-Lymph_Node/Liu_Validation_MIBI:
+    B_cell: Bcell
+    Background: Background
+    DC: Dendritic
+    Endothelial: Endothelial
+    Epithelial: Epithelial
+    FAILED_HARMONIZATION: Unknown
+    Fibroblast: Fibroblast
+    Macrophage: Macrophage
+    NK_cell: NK
+    T_cell: Tcell
+Tissue-Lymph_Node/McCaffrey_TB_MIBI:
+    B_cell: Bcell
+    Background: Background
+    CD11b_c_CD206_Mac_Mono: Myeloid
+    CD11c_DC_Mono: Myeloid
+    CD14_Mono: Monocyte
+    CD163_Mac: M2Macrophage
+    CD16_CD14_Mono: Monocyte
+    CD206_Mac: M2Macrophage
+    CD209_DC: Dendritic
+    CD4_T: CD4T
+    CD68_Mac: M1Macrophage
+    CD8_T: CD8T
+    Treg: Treg
+    Unidentified: Unknown
+    endothelial: Endothelial
+    epithelial: Epithelial
+    fibroblast: Fibroblast
+    giant_cell: GiantCell
+    gdT_cell: Tcell
+    imm_other: Immune
+    mast: Mast
+    neutrophil: Neutrophil
+Tissue-Musculoskeletal/Liu_Validation_MIBI:
+    B_cell: Bcell
+    Background: Background
+    DC: Dendritic
+    Endothelial: Endothelial
+    Epithelial: Epithelial
+    FAILED_HARMONIZATION: Unknown
+    Fibroblast: Fibroblast
+    Macrophage: Macrophage
+    NK_cell: NK
+    T_cell: Tcell
+Tissue-Nervous/Karimi_Brain_IMC_Glioma:
+    Astrocytes: Astrocyte
+    B cell: Bcell
+    Background: Background
+    Cancer: Tumor
+    Classical monocyte: Monocyte
+    DCs cell: Dendritic
+    Endothelial cell: Endothelial
+    Intermediate monocyte: Monocyte
+    M1-like bone marrow derived macrophage (classical): M1Macrophage
+    M1-like macrophage (classical): M1Macrophage
+    M2-like bone marrow derived macrophage (alternative): M2Macrophage
+    M2-like macrophage (alternative): M2Macrophage
+    Macrophages other: Macrophage
+    Mast cell: Mast
+    NK cell: NK
+    Neutrophils: Neutrophil
+    Non-classical monocyte: Monocyte
+    T cytotoxic: CD8T
+    T helper: CD4T
+    T other (CD4- CD8-): Tcell
+    T reg: Treg
+    Unidentified: Unknown
+Tissue-Nervous/Karimi_Brain_IMC_BrM:
+    Astrocytes: Astrocyte
+    B cell: Bcell
+    Background: Background
+    Cancer: Tumor
+    Classical monocyte: Monocyte
+    DCs cell: Dendritic
+    Endothelial cell: Endothelial
+    Intermediate monocyte: Monocyte
+    M1-like bone marrow derived macrophage (classical): M1Macrophage
+    M1-like macrophage (classical): M1Macrophage
+    M2-like bone marrow derived macrophage (alternative): M2Macrophage
+    M2-like macrophage (alternative): M2Macrophage
+    Macrophages other: Macrophage
+    Mast cell: Mast
+    NK cell: NK
+    Neutrophils: Neutrophil
+    Non-classical monocyte: Monocyte
+    T cytotoxic: CD8T
+    T helper: CD4T
+    T other (CD4- CD8-): Tcell
+    T reg: Treg
+    Unidentified: Unknown
+Tissue-Nervous/McCaffrey_TB_MIBI:
+    B_cell: Bcell
+    Background: Background
+    CD11b_c_CD206_Mac_Mono: Myeloid
+    CD11c_DC_Mono: Myeloid
+    CD14_Mono: Monocyte
+    CD163_Mac: M2Macrophage
+    CD16_CD14_Mono: Monocyte
+    CD206_Mac: M2Macrophage
+    CD209_DC: Dendritic
+    CD4_T: CD4T
+    CD68_Mac: M1Macrophage
+    CD8_T: CD8T
+    Treg: Treg
+    Unidentified: Unknown
+    endothelial: Endothelial
+    epithelial: Epithelial
+    fibroblast: Fibroblast
+    gdT_cell: Tcell
+    giant_cell: GiantCell
+    imm_other: Immune
+    mast: Mast
+    neutrophil: Neutrophil
+Tissue-Pancreas/Keren_PDAC_MIBI:
+    APC: Immune
+    Acinar: Acinar
+    Background: Background
+    Bcell: Bcell
+    CD3T: Tcell
+    CD4T: CD4T
+    CD8T: CD8T
+    EndocrineAlpha: Endocrine
+    EndocrineOther: Endocrine
+    Endothelial: Endothelial
+    Epithelial: Epithelial
+    Fibroblast: Fibroblast
+    Fibroblast_GATA6: Fibroblast
+    ImmuneOther: Immune
+    Mesenchymal: Stromal
+    Mesenchymal_GATA6: Stromal
+    Monocyte: Monocyte
+    Muscle: Muscle
+    Neuron: Neuron
+    Neutrophil: Neutrophil
+    Neutrophil_Calp: Neutrophil
+    NK: NK
+    SMV: BloodVesselEndothelial
+    Treg: Treg
+    Tumor: Tumor
+    TumorBasal: Tumor
+    TumorClassical: Tumor
+    TumorMixed: Tumor
+    Unidentified: Unknown
+Tissue-Renal/Liu_Validation_MIBI:
+    B_cell: Bcell
+    Background: Background
+    DC: Dendritic
+    Endothelial: Endothelial
+    Epithelial: Epithelial
+    FAILED_HARMONIZATION: Unknown
+    Fibroblast: Fibroblast
+    Macrophage: Macrophage
+    NK_cell: NK
+    T_cell: Tcell
+Tissue-Reproductive/Greenbaum_Maternal-Fetal-Interface_MIBI:
+    CD4T: CD4T
+    CD8T: CD8T
+    DC: Dendritic
+    EVT1a: EVT
+    EVT1b: EVT
+    EVT1c: EVT
+    EVT2: EVT
+    Endothelial: Endothelial
+    Fibroblasts: Fibroblast
+    Glandular: Secretory
+    Mac1a: M1Macrophage
+    Mac1b: M1Macrophage
+    Mac2: M2Macrophage
+    Mac2a: M2Macrophage
+    Mac2c: M2Macrophage
+    Mast: Mast
+    Myofibroblasts: Myofibroblast
+    NK1: NK
+    NK2: NK
+    NK3: NK
+    NK4: NK
+    NKT: NKT
+    Placental_Mac: Macrophage
+    Treg: Treg
+    background: Background
+    muscle: Muscle
+    other: Unknown
+    unspecified: Unknown
+Tissue-Reproductive/Liu_Validation_MIBI:
+    B_cell: Bcell
+    Background: Background
+    DC: Dendritic
+    Endothelial: Endothelial
+    Epithelial: Epithelial
+    FAILED_HARMONIZATION: Unknown
+    Fibroblast: Fibroblast
+    Macrophage: Macrophage
+    NK_cell: NK
+    T_cell: Tcell
+Tissue-Reproductive/McCaffrey_TB_MIBI:
+    B_cell: Bcell
+    Background: Background
+    CD11b_c_CD206_Mac_Mono: Myeloid
+    CD11c_DC_Mono: Myeloid
+    CD14_Mono: Monocyte
+    CD163_Mac: M2Macrophage
+    CD16_CD14_Mono: Monocyte
+    CD206_Mac: M2Macrophage
+    CD209_DC: Dendritic
+    CD4_T: CD4T
+    CD68_Mac: M1Macrophage
+    CD8_T: CD8T
+    Treg: Treg
+    Unidentified: Unknown
+    endothelial: Endothelial
+    epithelial: Epithelial
+    fibroblast: Fibroblast
+    gdT_cell: Tcell
+    giant_cell: GiantCell
+    imm_other: Immune
+    mast: Mast
+    neutrophil: Neutrophil
+Tissue-Skin/Keren_Melanoma_MIBI:
+    ActivatedFibro: Fibroblast
+    Background: Background
+    Bcell: Bcell
+    CD4T: CD4T
+    CD8T: CD8T
+    Endothelial: Endothelial
+    Epithelial: Epithelial
+    Garbage: Unknown
+    HLM: Unknown # TODO: can't find this cell type, no paper reference
+    ImmuneOther: Immune
+    Myeloid: Myeloid
+    MyoFibro: Fibroblast
+    NK: NK
+    NKT: NKT
+    Neuron: Neuron
+    Neutrophil: Neutrophil
+    SMV: BloodVesselEndothelial
+    Tcell: Tcell
+    Treg: Treg
+    Tumor: Tumor
+    Tumor_BCAT: Tumor
+    Unidentified: Unknown
+Tissue-Skin/Liu_Validation_MIBI:
+    B_cell: Bcell
+    Background: Background
+    DC: Dendritic
+    Endothelial: Endothelial
+    Epithelial: Epithelial
+    FAILED_HARMONIZATION: Unknown
+    Fibroblast: Fibroblast
+    Macrophage: Macrophage
+    NK_cell: NK
+    T_cell: Tcell
+Tissue-Spleen/Liu_Validation_MIBI:
+    B_cell: Bcell
+    Background: Background
+    DC: Dendritic
+    Endothelial: Endothelial
+    Epithelial: Epithelial
+    FAILED_HARMONIZATION: Unknown
+    Fibroblast: Fibroblast
+    Macrophage: Macrophage
+    NK_cell: NK
+    T_cell: Tcell
+Tissue-Thymus/Liu_Validation_MIBI:
+    B_cell: Bcell
+    Background: Background
+    DC: Dendritic
+    Endothelial: Endothelial
+    Epithelial: Epithelial
+    FAILED_HARMONIZATION: Unknown
+    Fibroblast: Fibroblast
+    Macrophage: Macrophage
+    NK_cell: NK
+    T_cell: Tcell
+Tissue-Tonsil/Liu_Validation_MIBI:
+    B_cell: Bcell
+    Background: Background
+    DC: Dendritic
+    Endothelial: Endothelial
+    Epithelial: Epithelial
+    FAILED_HARMONIZATION: Unknown
+    Fibroblast: Fibroblast
+    Macrophage: Macrophage
+    NK_cell: NK
+    T_cell: Tcell
+Tissue-Tonsil/Nolan_Stellar_CODEX:
+    Innate: Myeloid # plus NK cells, not accurate
+    PDPN: Stromal # either Stromal or Tumor? paper says PDPN positivie Stromal cells
+    Endothelial: Endothelial
+    B: Bcell
+    T: Tcell
+    Squamous_epithelial: Epithelial
+    Stroma: Stromal
+    SmoothMuscle: SmoothMuscle
+    Plasma: Plasma
+    Nerve: Nerve
+    Glandular_epi: Epithelial
+    Secretory_epithelial: Secretory
+    Paneth: Paneth
+Tissue-GI/Nolan_Stellar_CODEX:
+    Innate: Myeloid # plus NK cells, not accurate
+    PDPN: Stromal # either Stromal or Tumor? paper says PDPN positivie Stromal cells
+    Endothelial: Endothelial
+    B: Bcell
+    T: Tcell
+    Squamous_epithelial: Epithelial
+    Stroma: Stromal
+    SmoothMuscle: SmoothMuscle
+    Plasma: Plasma
+    Nerve: Nerve
+    Glandular_epi: Epithelial
+    Secretory_epithelial: Secretory
+    Paneth: Paneth
