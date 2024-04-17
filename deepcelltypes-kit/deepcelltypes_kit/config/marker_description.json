@@ -1,0 +1,867 @@
+{
+    "CK5": {
+        "Functionality": "CK5 is a type of intermediate filament protein found in the cytoskeleton of epithelial cells. It plays a critical role in maintaining cell structure, integrity, and resilience against mechanical stress. CK5 is particularly important in the formation and maintenance of the epithelial cell layer's basal cells.",
+        "Cell Type Association": "CK5 is predominantly expressed in the basal cells of stratified epithelia, such as the skin, oral mucosa, and esophagus. It is also present in myoepithelial cells of the breast, sweat glands, and salivary glands. In pathology, CK5 expression is a key marker in identifying basal-like breast cancer and squamous cell carcinoma. Its expression is also significant in differentiating epithelial tumors and in the study of epithelial-to-mesenchymal transition processes.",
+        "Alternative name": "Cytokeratin 5"
+    },
+    "CK7": {
+        "Functionality": "CK7 is a component of the intermediate filaments found in certain epithelial cells. It contributes to the mechanical integrity of the cells and plays a role in cellular signaling, migration, and proliferation. CK7 is often involved in cellular differentiation processes, particularly in glandular and transitional epithelia.",
+        "Cell Type Association": "This protein is characteristic of the epithelial cells from the lung, breast, ovary, and urinary system. It is commonly used in histopathology to help identify and classify tumors originating from these tissues, such as breast, ovarian, and lung adenocarcinomas. The presence or absence of CK7, often in combination with other markers, aids in distinguishing between different types of epithelial cancers.",
+        "Alternative name": "Cytokeratin 7"
+    },
+    "CK8-18": {
+        "Functionality": "CK8 and CK18 form a pair of keratins that are typically found in the intermediate filaments of simple epithelia. They are essential for maintaining the structural stability of epithelial cells and are involved in cellular stress responses, apoptosis, and cell signaling. These keratins are also implicated in modulating cell adhesion and motility.",
+        "Cell Type Association": "CK8-18 are predominantly expressed in simple epithelia, which include the lining cells of internal organs such as the liver, pancreas, intestine, and lung. These markers are useful in differentiating primary carcinomas of the liver, pancreas, and biliary system from those of other origins. They are also used in research to study the biology of epithelial cells and their transformation in cancer.",
+        "Alternative name": "Cytokeratin 8-18"
+    },
+    "CK14": {
+        "Functionality": "CK14 is a type I cytokeratin that is crucial for the structural integrity of cells in the basal layer of stratified squamous epithelia. It forms filaments that are essential for cell structure and resistance to mechanical stress. Mutations in the CK14 gene can lead to skin fragility and blistering disorders, highlighting its role in maintaining epithelial integrity.",
+        "Cell Type Association": "CK14 is expressed in the basal cells of stratified epithelia, including the epidermis, oral mucosa, and esophageal lining. It is a key marker for identifying basal cell carcinomas and squamous cell carcinomas. In addition, CK14 is used to study the biology of stem cells in the basal layer and their role in epithelial regeneration and cancer.",
+        "Alternative name": "Cytokeratin 14"
+    },
+    "CK19": {
+        "Functionality": "CK19 is the smallest member of the cytokeratin family and is involved in maintaining the structural stability of epithelial cells. It plays a role in cell growth, signaling, and motility. CK19 is also involved in the organization of the cytoskeleton and contributes to cellular resilience against stress.",
+        "Cell Type Association": "CK19 is widely expressed in the epithelial cells of various organs, including the liver, pancreas, and thyroid. It is particularly important as a marker in cancer diagnosis and prognosis, especially in cancers of the liver, breast, and lung. CK19 is used in the identification of circulating tumor cells and as a prognostic indicator in various carcinomas.",
+        "Alternative name": "Cytokeratin 19"
+    },
+    "HER2": {
+        "Functionality": "HER2 is a member of the epidermal growth factor receptor (EGFR) family, known for its role in cell growth, differentiation, and survival. Overexpression or amplification of the HER2 gene can lead to increased cell proliferation and is associated with aggressive types of cancer.",
+        "Cell Type Association": "HER2 is particularly significant in breast cancer, where its overexpression is a key factor in prognosis and treatment strategies. It is also relevant in gastric and esophageal cancers. HER2 status is critical for guiding therapy with targeted agents such as trastuzumab.",
+        "Alternative name": "Human Epidermal Growth Factor Receptor 2, also known as ERBB2, Neu, CD340, and p185"
+    },
+    "EGFR": {
+        "Functionality": "EGFR is a transmembrane receptor tyrosine kinase involved in regulating cell growth, survival, proliferation, and differentiation. Abnormal EGFR signaling is implicated in the development of various cancers.",
+        "Cell Type Association": "EGFR expression is found in many cell types but is particularly relevant in non-small cell lung cancer, colorectal cancer, and head and neck cancers. EGFR mutations or overexpression can be targeted therapeutically with specific inhibitors, making it a crucial marker in oncology.",
+        "Alternative name": "Epidermal Growth Factor Receptor, also known as ERBB, ERBB1, HER1"
+    },
+    "CD31": {
+        "Functionality": "CD31 is a cell adhesion molecule important for maintaining the integrity of blood vessels and for leukocyte transmigration during inflammatory responses.",
+        "Cell Type Association": "Primarily expressed in endothelial cells, CD31 is a key marker for identifying blood vessel endothelial cells. It is used in studying angiogenesis in tumors and in distinguishing vascular tumors from other neoplasms.",
+        "Alternative name": "Cluster of Differentiation 31, also known as PECAM-1, Platelet Endothelial Cell Adhesion Molecule-1"
+    },
+    "vWF": {
+        "Functionality": "vWF is a blood glycoprotein involved in hemostasis, acting as a carrier for factor VIII and promoting platelet adhesion to sites of vascular injury. ",
+        "Cell Type Association": "It is produced in endothelial cells and megakaryocytes. In pathology, vWF staining is used to identify endothelial cells and to diagnose vascular tumors.",
+        "Alternative name": "von Willebrand Factor"
+    },
+    "SMA": {
+        "Functionality": "SMA is an actin isoform that is a major component of the cytoskeleton in smooth muscle cells. It plays a key role in muscle contraction and cell motility.",
+        "Cell Type Association": "SMA is expressed in smooth muscle cells found in blood vessel walls, the gastrointestinal tract, and the uterus. It is a key marker for identifying smooth muscle tumors and myofibroblasts in tissue samples.",
+        "Alternative name": "Smooth Muscle Actin"
+    },
+    "Vimentin": {
+        "Functionality": "Vimentin is an intermediate filament protein important in maintaining cell shape, integrity, and stability. It's involved in cell adhesion, migration, and signaling. ",
+        "Cell Type Association": "Vimentin is widely expressed in mesenchymal cells, making it a key marker for identifying cells of mesenchymal origin. It is used in pathology to differentiate mesenchymal tumors from epithelial tumors and to identify sarcomas.",
+        "Alternative name": "Vimentin"
+    },
+    "Fibronectin": {
+        "Functionality": "Fibronectin is a high-molecular-weight glycoprotein of the extracellular matrix that plays a crucial role in cell adhesion, growth, migration, and wound healing.",
+        "Cell Type Association": "It is produced by fibroblasts and is a major component of the extracellular matrix. Fibronectin is used in cancer research to understand tumor-stroma interactions and in tissue engineering.",
+        "Alternative name": "Fibronectin"
+    },
+    "CD45": {
+        "Functionality": "CD45 is a membrane-bound protein tyrosine phosphatase crucial for signal transduction in leukocytes, impacting cell development, activation, and differentiation. It is essential in modulating antigen receptor signaling on T and B cells.",
+        "Cell Type Association": "Widely expressed on all hematopoietic cells except mature red blood cells and platelets. CD45 is a universal marker for identifying leukocytes (white blood cells) and is crucial in distinguishing hematopoietic tumors from non-hematopoietic ones in pathology.",
+        "Alternative name": "Cluster of Differentiation 45, also known as Leukocyte Common Antigen (LCA)"
+    },
+    "CD3": {
+        "Functionality": "CD3 is a complex of proteins associated with the T-cell receptor (TCR) on T lymphocytes. It is involved in the activation and signal transduction of T cells.",
+        "Cell Type Association": "Expressed on all T cells, making it an essential marker for identifying T lymphocytes in tissues. CD3 is used in diagnosing T-cell lymphomas and leukemias and in evaluating lymphoid infiltrates in various conditions.",
+        "Alternative name": "Cluster of Differentiation 3"
+    },
+    "CD20": {
+        "Functionality": "CD20 is a surface antigen expressed on B-cells, involved in B-cell activation, proliferation, and differentiation.",
+        "Cell Type Association": "Primarily expressed on B-cells from the pre-B-cell stage to mature B-cells, but not on plasma cells. It is a key marker in diagnosing B-cell lymphomas and leukemias and is targeted by therapeutic antibodies in these diseases.",
+        "Alternative name": "Cluster of Differentiation 20"
+    },
+    "CD68": {
+        "Functionality": "CD68 is a glycoprotein predominantly expressed in intracellular lysosomes and is associated with phagocytic activity in cells.",
+        "Cell Type Association": "Highly expressed in macrophages and is used as a marker to identify these cells in tissues. CD68 is instrumental in diagnosing macrophage-rich conditions and in studying inflammatory responses.",
+        "Alternative name": "Cluster of Differentiation 68"
+    },
+    "CD44": {
+        "Functionality": "CD44 is a cell-surface glycoprotein involved in cell-cell interactions, cell adhesion, and migration. It plays a role in lymphocyte activation and homing.",
+        "Cell Type Association": "Expressed on many cell types including lymphocytes, fibroblasts, and epithelial cells. CD44 is important in cancer research for identifying cancer stem cells and in studying metastasis.",
+        "Alternative name": "Cluster of Differentiation 44"
+    },
+    "p53": {
+        "Functionality": "p53 is a crucial tumor suppressor protein that regulates the cell cycle and prevents genomic mutation. It is involved in triggering apoptosis in response to DNA damage.",
+        "Cell Type Association": "Expressed ubiquitously but becomes prominent in cells with DNA damage or under stress. Mutations in p53 are common in various cancers, making it a focus of intense research in oncology.",
+        "Alternative name": "Tumor Protein p53, TP53"
+    },
+    "Ki67": {
+        "Functionality": "Ki67 is a nuclear protein associated with cellular proliferation. It is present during all active phases of the cell cycle but absent in resting cells.",
+        "Cell Type Association": "Ki67 is a marker for identifying proliferating cells in tissues. It is widely used in oncology to assess tumor growth and aggressiveness by determining the proportion of dividing cells.",
+        "Alternative name": "also known as MKI67"
+    },
+    "PanCK": {
+        "Functionality": "PanCK refers to a broad-spectrum antibody that recognizes a wide range of cytokeratins, covering both low and high molecular weight proteins.",
+        "Cell Type Association": "Detects a variety of epithelial cells, making it a versatile marker in identifying epithelial tissues and carcinomas. It is particularly useful in confirming epithelial origin in metastatic cancers.",
+        "Alternative name": "Pan-Cytokeratin"
+    },
+    "Beta-catenin": {
+        "Functionality": "Beta-catenin is a multifunctional protein involved in regulating cell-cell adhesion and gene transcription. In the Wnt signaling pathway, beta-catenin plays a pivotal role in controlling the balance between cell proliferation and differentiation. It is also a key component of the cadherin protein complex, involved in maintaining epithelial cell integrity.",
+        "Cell Type Association": "Present in many cell types, particularly at the adherens junctions of epithelial cells. Its altered expression and localization are markers for various types of cancers, especially colorectal cancer. Beta-catenin is also significant in developmental biology and stem cell research, as it is involved in the regulation of embryonic development and adult tissue homeostasis.",
+        "Alternative name": "Also known as CTNNB1"
+    },
+    "SOX9": {
+        "Functionality": "SOX9 is a transcription factor involved in the regulation of embryonic development and in the determination of cell fate. It's important in chondrogenesis and the maintenance of skeletal progenitor cells.",
+        "Cell Type Association": "Expressed in various tissues including cartilage, and is used as a marker in developmental biology and in studying disorders related to cartilage and bone development.",
+        "Alternative name": "SRY-Box Transcription Factor 9"
+    },
+    "S6": {
+        "Functionality": "S6 is a component of the 40S ribosomal subunit and plays a role in protein synthesis. It is involved in the regulation of cell growth and proliferation through its phosphorylation status, which is often mediated by mTOR signaling.",
+        "Cell Type Association": "Universally expressed in cells, but its phosphorylated form (phospho-S6) is a marker of increased protein synthesis and cell proliferation, particularly in cancer cells.",
+        "Alternative name": "Ribosomal Protein S6"
+    },
+    "Twist": {
+        "Functionality": "Twist is a transcription factor implicated in the process of epithelial-mesenchymal transition (EMT). It is involved in embryonic development, stem cell renewal, and tumor metastasis.",
+        "Cell Type Association": "Its expression is critical in cancer biology, particularly in metastatic processes and resistance to chemotherapy.",
+        "Alternative name": "Twist Family BHLH Transcription Factor 1"
+    },
+    "GATA3": {
+        "Functionality": "GATA3 is a transcription factor playing a vital role in the development and differentiation of T cells in the thymus and in the regulation of genes involved in the immune response.",
+        "Cell Type Association": "Expressed in T lymphocytes, particularly Th2 cells. In pathology, GATA3 is used as a marker in breast cancer, urothelial carcinoma, and some hematological malignancies.",
+        "Alternative name": "GATA Binding Protein 3"
+    },
+    "Slug": {
+        "Functionality": "Slug is a transcription factor involved in the EMT, influencing cell migration, invasion, and survival. It is important in embryonic development, particularly in neural crest formation.",
+        "Cell Type Association": "In cancer biology, Slug is studied for its role in tumor progression and metastasis. Its expression is indicative of a more aggressive tumor phenotype.",
+        "Alternative name": "also known as SNAI2, Snail Family Transcriptional Repressor 2"
+    },
+    "c-Caspase-3": {
+        "Functionality": "Caspase-3 is a critical executioner in the process of apoptosis (programmed cell death). The cleaved form indicates the activation of apoptosis.",
+        "Cell Type Association": "Widely expressed in cells undergoing apoptosis. In tissue samples, detection of c-Caspase-3 can be used to assess apoptotic activity, which is important in various pathological conditions including cancer and neurodegenerative diseases.",
+        "Alternative name": "Cleaved Caspase-3"
+    },
+    "EP2": {
+        "Functionality": "EP2 is a receptor for prostaglandin E2, involved in mediating inflammatory responses and various physiological processes including pain perception and regulation of immune responses.",
+        "Cell Type Association": "Expressed in a variety of cells including those in the immune system, nervous system, and epithelial tissues. In pathology, its expression is studied in the context of inflammation and cancer.",
+        "Alternative name": "Prostaglandin E2 Receptor EP2 Subtype"
+    },
+    "SP2": {
+        "Functionality": "SP2 is a transcription factor involved in the regulation of gene expression, particularly in B-cell development and function.",
+        "Cell Type Association": "Its expression is significant in B lymphocytes and is studied in the context of immunology and certain hematological cancers.",
+        "Alternative name": "Specificity Protein 2"
+    },
+    "CA9": {
+        "Functionality": "CA9 is an enzyme that regulates pH in cells, particularly under hypoxic conditions. It is involved in cell survival, proliferation, and tumor progression.",
+        "Cell Type Association": "Expressed in various carcinoma cells, especially in renal cell carcinoma. CA9 is a marker for hypoxia and is associated with poor prognosis in several types of cancers.",
+        "Alternative name": "Carbonic Anhydrase IX"
+    },
+    "c-PARP": {
+        "Functionality": "c-PARP is a fragment of the PARP protein, produced during the process of apoptosis. PARP is involved in DNA repair, and its cleavage is a key step in the execution phase of cell death.",
+        "Cell Type Association": "The presence of c-PARP is indicative of cells undergoing apoptosis. It is used in various pathological studies, including cancer research, to identify apoptotic cells and assess the effectiveness of anti-cancer therapies.",
+        "Alternative name": "Cleaved Poly(ADP-Ribose) Polymerase"
+    },
+    "CD163": {
+        "Functionality": "CD163 is a scavenger receptor expressed on the surface of macrophages. It plays a role in the immune system by binding and clearing hemoglobin/haptoglobin complexes, thus modulating inflammation.",
+        "Cell Type Association": "Primarily expressed on the surface of macrophages, especially those involved in the anti-inflammatory response (M2 macrophages). It is used as a marker for identifying macrophages in tissue samples and is significant in the study of inflammation and tumor-associated macrophages.",
+        "Alternative name": "CD163"
+    },
+    "MECA-79": {
+        "Functionality": "MECA-79 is an antibody that recognizes a carbohydrate epitope expressed on high endothelial venules (HEVs). HEVs are specialized blood vessels involved in lymphocyte trafficking.",
+        "Cell Type Association": "The presence of MECA-79 staining is indicative of high endothelial venules, particularly in lymphoid tissues. It is used in immunology and pathology to identify areas of lymphocyte trafficking and lymph node structure.",
+        "Alternative name": "also known as HEC-GlcNAc6ST"
+    },
+    "CD4": {
+        "Functionality": "CD4 is a glycoprotein found on the surface of immune cells, including helper T cells, monocytes, macrophages, and dendritic cells. It acts as a co-receptor for antigen recognition and plays a crucial role in the immune system.",
+        "Cell Type Association": "CD4 is a marker for helper T cells (CD4+ T cells). Its expression is crucial in the diagnosis and monitoring of HIV/AIDS, as these are the cells targeted by the HIV virus. In cancer and other diseases, CD4+ T cells are significant in the immune response.",
+        "Alternative name": "Cluster of Differentiation 4"
+    },
+    "SOX10": {
+        "Functionality": "SOX10 is a transcription factor important in the development of neural crest cells, particularly in the formation of melanocytes and Schwann cells.",
+        "Cell Type Association": "Expressed in melanocytes, Schwann cells, and myoepithelial cells. It is used as a diagnostic marker in melanoma, schwannoma, and other neural crest-derived tumors.",
+        "Alternative name": "SRY-Box Transcription Factor 10"
+    },
+    "CD103": {
+        "Functionality": "CD103 is a protein that mediates adhesion of immune cells to epithelial cells. It is involved in the immune response, particularly in the gut.",
+        "Cell Type Association": "Expressed on intraepithelial lymphocytes and some subsets of dendritic cells. It is important in studies of mucosal immunity and in the diagnosis of certain types of lymphomas and leukemias.",
+        "Alternative name": "cluster of differentiation 103, also known as Integrin alpha-E (ITGAE)"
+    },
+    "TCF1": {
+        "Functionality": "TCF1, also known as TCF7, is a transcription factor involved in T cell development and differentiation. It plays a key role in the Wnt signaling pathway.",
+        "Cell Type Association": "Expressed in T cells, particularly in early thymocytes. It is important in immunology research, especially in understanding T cell development and function.",
+        "Alternative name": "Transcription Factor 1, also known as TCF7"
+    },
+    "GZMB": {
+        "Functionality": "Granzyme B is a serine protease released by cytotoxic T cells and NK cells. It induces apoptosis in target cells, playing a crucial role in the immune response against viruses and tumors.",
+        "Cell Type Association": "Found in cytotoxic T cells (CD8+ T cells) and NK cells. It is used as a marker for these cells and is significant in studying cell-mediated cytotoxicity.",
+        "Alternative name": "Granzyme B"
+    },
+    "CD56": {
+        "Functionality": "CD56 is an adhesion molecule important in cell-cell interaction, particularly in the nervous system and in the immune system.",
+        "Cell Type Association": "Expressed on NK cells and a subset of T cells. It is also found in neurons and neuroendocrine tissues. CD56 is used as a marker for NK cells and certain neuroendocrine tumors.",
+        "Alternative name": "Neural Cell Adhesion Molecule"
+    },
+    "Bax": {
+        "Functionality": "Bax is a pro-apoptotic protein that promotes cell death by disrupting mitochondrial membrane integrity. It plays a crucial role in the regulation of apoptosis.",
+        "Cell Type Association": "Widely expressed in cells, Bax is particularly significant in studies of programmed cell death and in the pathology of diseases where apoptosis is dysregulated, such as cancer and neurodegenerative disorders.",
+        "Alternative name": "BCL2 Associated X Protein"
+    },
+    "CD14": {
+        "Functionality": "CD14 is a co-receptor involved in recognizing and binding lipopolysaccharides (LPS) from bacterial cell walls. It plays a significant role in the innate immune response, particularly in mediating responses to bacterial infections.",
+        "Cell Type Association": "Expressed predominantly on the surface of monocytes and macrophages. It is a key marker for identifying these cells in various tissue types and is important in studies of inflammation and infection.",
+        "Alternative name": "CD14"
+    },
+    "IDO": {
+        "Functionality": "IDO is an enzyme that catalyzes the degradation of tryptophan along the kynurenine pathway, playing a role in immune tolerance and inflammation.",
+        "Cell Type Association": "Expressed in various cell types including immune cells, endothelial cells, and tumor cells. It is significant in cancer immunology as it contributes to immune evasion by tumors.",
+        "Alternative name": "Indoleamine 2,3-Dioxygenase"
+    },
+    "FoxP3": {
+        "Functionality": "FoxP3 is a transcription factor that plays a critical role in the development and function of regulatory T cells (Tregs), which are essential for maintaining immune tolerance and preventing autoimmune responses.",
+        "Cell Type Association": "Expressed specifically in regulatory T cells (Tregs). Its detection is crucial for identifying these cells in tissue samples and is important in studies of immune regulation and autoimmunity.",
+        "Alternative name": "Forkhead Box P3"
+    },
+    "CD8": {
+        "Functionality": "CD8 is a co-receptor found on the surface of cytotoxic T lymphocytes (CTLs). It aids in the recognition of antigens presented by MHC class I molecules, leading to the activation and targeting of CTLs.",
+        "Cell Type Association": "Expressed on cytotoxic T cells (CD8+ T cells). It is a key marker for these cells and is used in diagnosing and studying T-cell lymphomas, as well as in evaluating the immune response in cancers and infectious diseases.",
+        "Alternative name": "CD8"
+    },
+    "COL1": {
+        "Functionality": "Collagen Type I is the most abundant collagen type in the human body, providing structural support and strength to various tissues, including skin, bone, tendons, and organs.",
+        "Cell Type Association": "Produced by fibroblasts and osteoblasts. It is a crucial component of the extracellular matrix and is significant in wound healing, fibrosis, and in studying connective tissue disorders.",
+        "Alternative name": "Collagen Type I"
+    },
+    "HLA-Class-2": {
+        "Functionality": "HLA-Class-2 molecules are involved in the immune system, presenting peptides to CD4+ T cells. They play a key role in initiating immune responses.",
+        "Cell Type Association": "Expressed on antigen-presenting cells (APCs) like dendritic cells, macrophages, and B cells. They are important in autoimmune diseases, transplant rejection, and in vaccine responses.",
+        "Alternative name": "Human Leukocyte Antigen Class II"
+    },
+    "TIM3": {
+        "Functionality": "TIM3 is an immune checkpoint protein involved in the regulation of T cell responses. It plays a role in inhibiting immune responses and maintaining immune tolerance.",
+        "Cell Type Association": "Expressed on T cells, particularly on exhausted T cells in chronic viral infections and cancer. It is significant in cancer immunotherapy research as a potential therapeutic target.",
+        "Alternative name": "T-cell Immunoglobulin and Mucin-domain containing-3"
+    },
+    "PD1": {
+        "Functionality": "PD1 is an immune checkpoint protein that negatively regulates immune responses by preventing the activation of T cells, thereby maintaining self-tolerance and preventing autoimmunity.",
+        "Cell Type Association": "Expressed on T cells, B cells, and some myeloid cells. Its interaction with PD-L1 on tumor cells allows cancer cells to evade immune detection, making it a crucial target in cancer immunotherapy.",
+        "Alternative name": "Programmed Cell Death Protein 1"
+    },
+    "LAG3": {
+        "Functionality": "LAG3 is an immune checkpoint receptor involved in the negative regulation of T cell function. It plays a role in controlling T cell expansion and immune tolerance.",
+        "Cell Type Association": "Expressed on activated T cells, NK cells, and plasmacytoid dendritic cells. It is significant in the study of immune responses in cancer, chronic viral infections, and autoimmunity.",
+        "Alternative name": "Lymphocyte-activation gene 3"
+    },
+    "CD11c": {
+        "Functionality": "CD11c is a type of integrin involved in the adhesion and migration of leukocytes, particularly in the immune response to infections and inflammation.",
+        "Cell Type Association": "Primarily expressed on dendritic cells and is used as a key marker for identifying these cells in tissues. It is important in immunology research and in the study of autoimmune diseases and allergies.",
+        "Alternative name": "CD11c"
+    },
+    "CD69": {
+        "Functionality": "CD69 is an early activation marker on lymphocytes, indicating cell activation and proliferation. It plays a role in lymphocyte signaling and the regulation of immune responses.",
+        "Cell Type Association": "Expressed transiently on activated T and B cells, NK cells, and some myeloid cells. It is used as a marker for studying early immune responses and lymphocyte activation in various diseases, including autoimmune disorders and infections.",
+        "Alternative name": "CD69"
+    },
+    "HLA-Class-1": {
+        "Functionality": "HLA-Class-1 molecules are involved in the presentation of endogenous antigens to CD8+ T cells. They are key to immune surveillance and the recognition of virally infected and transformed cells.",
+        "Cell Type Association": "Expressed on almost all nucleated cells in the body. Their expression is crucial in the context of tumor immunity, viral infections, and organ transplantation.",
+        "Alternative name": "Human Leukocyte Antigen Class I"
+    },
+    "CD45RA": {
+        "Functionality": "CD45RA is an isoform of the CD45 molecule, serving as a marker for naive T cells. It indicates a lymphocyte's differentiation state and is involved in modulating signaling thresholds for T cell activation.",
+        "Cell Type Association": "Expressed on naive T cells and a subset of B cells. It is used to distinguish naive lymphocytes from memory cells, important in studies of immune responses and lymphocyte homing.",
+        "Alternative name": "CD45RA"
+    },
+    "CD21": {
+        "Functionality": "CD21 is a receptor for complement components and the Epstein-Barr virus. It plays a role in B cell activation and the immune response to pathogens.",
+        "Cell Type Association": "Expressed on B cells and follicular dendritic cells. It is used in identifying these cells and studying their role in immune responses, particularly in the context of autoimmune diseases and infections.",
+        "Alternative name": "Complement receptor 2"
+    },
+    "MelanA": {
+        "Functionality": "MelanA is a differentiation antigen expressed in melanocytes. It is involved in the pigmentation process and is recognized by cytotoxic T lymphocytes.",
+        "Cell Type Association": "Expressed in melanocytes and melanoma cells. It is a key diagnostic marker for identifying melanoma, particularly in distinguishing it from other types of skin cancers.",
+        "Alternative name": "also known as MART1, Melanoma Antigen Recognized by T cells 1"
+    },
+    "Calprotectin": {
+        "Functionality": "Calprotectin is a protein complex involved in inflammatory processes. It has antimicrobial properties and plays a role in the regulation of the immune response to infections.",
+        "Cell Type Association": "Expressed in neutrophils, monocytes, and macrophages. It is used as a biomarker for inflammation, particularly in gastrointestinal disorders such as inflammatory bowel disease.",
+        "Alternative name": "Calprotectin"
+    },
+    "Tox-Tox2": {
+        "Functionality": "TOX and TOX2 are transcription factors involved in the development of lymphocytes, particularly in thymocyte development and T cell lineage commitment.",
+        "Cell Type Association": "Expressed in developing thymocytes and some subsets of T cells. They are important in immunology research, particularly in understanding T cell development and function.",
+        "Alternative name": "Thymocyte Selection-Associated High Mobility Group Box Protein TOX and TOX2"
+    },
+    "CD45RO": {
+        "Functionality": "CD45RO is another isoform of the CD45 molecule, serving as a marker for memory T cells. It is involved in modulating T cell receptor signaling in memory T cells.",
+        "Cell Type Association": "Expressed on memory T cells. Its presence is indicative of an antigen-experienced T cell and is important in studies of immune memory and chronic immune responses.",
+        "Alternative name": "CD45RO"
+    },
+    "CD206": {
+        "Functionality": "CD206 is a receptor involved in endocytosis, immune recognition, and homeostasis. It binds to mannose, fucose, and N-acetylglucosamine on pathogens, facilitating their clearance.",
+        "Cell Type Association": "Expressed predominantly on macrophages, particularly M2-type macrophages. It is a key marker for identifying these cells, especially in the context of tumor-associated macrophages and in conditions involving tissue repair and fibrosis.",
+        "Alternative name": "Mannose Receptor, C type 1"
+    },
+    "CCR7": {
+        "Functionality": "CCR7 is a chemokine receptor that plays a crucial role in lymphocyte homing to lymph nodes and in the regulation of the immune response.",
+        "Cell Type Association": "Expressed on naive and central memory T cells, as well as some dendritic cells. It is important in immunology for studying lymphocyte trafficking and immune responses in lymphoid tissues.",
+        "Alternative name": "C-C Chemokine Receptor Type 7"
+    },
+    "pS6": {
+        "Functionality": "pS6 is a phosphorylated form of the ribosomal protein S6, indicating active protein synthesis. It is often used as a marker for cell proliferation and growth signal activation.",
+        "Cell Type Association": "Found in various cell types, particularly in cells with high metabolic activity or those stimulated by growth factors. Its expression is significant in cancer research, as it can indicate tumor cell proliferation and response to targeted therapies.",
+        "Alternative name": "Phosphorylated Ribosomal Protein S6"
+    },
+    "CK17": {
+        "Functionality": "CK17 is a type I cytokeratin found in the intermediate filaments of epithelial cells. It is involved in the structural integrity of epithelial tissues and plays a role in wound healing.",
+        "Cell Type Association": "Expressed in the basal layers of stratified epithelia, including hair follicles and some glandular epithelia. CK17 is used as a marker in pathology for certain types of epithelial tumors, including squamous cell carcinoma and basal cell carcinoma.",
+        "Alternative name": "Cytokeratin 17"
+    },
+    "PDL1": {
+        "Functionality": "PDL1 is a ligand for PD1, involved in the suppression of the immune response and the induction of immune tolerance by inhibiting T cell activation.",
+        "Cell Type Association": "Expressed on many cell types, including immune cells and tumor cells. Its role in helping tumors evade the immune system makes it a significant target in cancer immunotherapy.",
+        "Alternative name": "Programmed Death-Ligand 1, also known as CD274"
+    },
+    "CD138": {
+        "Functionality": "CD138 is a transmembrane protein that acts as a receptor for extracellular matrix components. It is involved in cell adhesion, proliferation, and migration.",
+        "Cell Type Association": "Expressed in plasma cells and some epithelial cells. It is a key marker for identifying plasma cells in tissues, particularly in the diagnosis of plasma cell neoplasms like multiple myeloma.",
+        "Alternative name": "Syndecan-1"
+    },
+    "CD16": {
+        "Functionality": "CD16 is a receptor for the Fc portion of IgG, mediating antibody-dependent cellular cytotoxicity. It plays a role in the immune response, particularly in phagocytosis and clearing antibody-coated pathogens.",
+        "Cell Type Association": "Expressed on NK cells, macrophages, and some T cells. It is important in studies of innate immunity and is used to identify NK cells and certain macrophage populations.",
+        "Alternative name": "Fc gamma Receptor III"
+    },
+    "CD209": {
+        "Functionality": "CD209 is a C-type lectin receptor involved in pathogen recognition and immune response initiation by dendritic cells. It binds to various pathogens, including viruses and bacteria.",
+        "Cell Type Association": "Exclusively expressed on dendritic cells. It is significant in immunology for studying pathogen interactions and dendritic cell function.",
+        "Alternative name": "DC-SIGN, Dendritic Cell-Specific Intercellular adhesion molecule-3-Grabbing Non-integrin"
+    },
+    "CK6": {
+        "Functionality": "CK6 is a type II cytokeratin involved in the structural integrity of epithelial cells. It is responsive to stress and is upregulated in wound healing and hyperproliferative conditions.",
+        "Cell Type Association": "Expressed in the suprabasal layers of stratified epithelia. CK6 is a marker for proliferating cells in the epidermis and is used in dermatopathology to identify certain skin disorders and cancers.",
+        "Alternative name": "Cytokeratin 6"
+    },
+    "CD63": {
+        "Functionality": "CD63 is a lysosomal membrane protein involved in various cellular processes, including cell adhesion, migration, and signal transduction. It is also implicated in the formation and function of exosomes.",
+        "Cell Type Association": "Expressed on the surface of activated platelets, macrophages, and some types of tumor cells. It is used in research related to cellular trafficking, exosome biology, and as a marker for platelet activation.",
+        "Alternative name": "Cluster of Differentiation 63, also known as LAMP-3, Lysosomal-Associated Membrane Protein 3"
+    },
+    "MPO": {
+        "Functionality": "MPO is an enzyme primarily found in neutrophils, involved in the production of hypochlorous acid and other reactive substances used by the immune system to kill pathogens.",
+        "Cell Type Association": "Highly expressed in neutrophils and to a lesser extent in monocytes. It's a key marker in identifying these cells, especially in conditions like acute myeloid leukemia and chronic inflammatory processes.",
+        "Alternative name": "Myeloperoxidase"
+    },
+    "OX40": {
+        "Functionality": "OX40 is a costimulatory molecule that plays a role in T cell activation and survival. It enhances immune responses by promoting the proliferation of T cells and preventing apoptosis.",
+        "Cell Type Association": "Expressed on activated T cells, particularly CD4+ T cells. It is significant in immunotherapy research, as targeting OX40 can enhance anti-tumor immunity.",
+        "Alternative name": "also known as TNFRSF4, Tumor Necrosis Factor Receptor Superfamily Member 4"
+    },
+    "CD11b": {
+        "Functionality": "CD11b is a component of the integrin complex involved in leukocyte adhesion and migration. It plays a crucial role in the immune response, particularly in phagocytosis and cell-mediated cytotoxicity.",
+        "Cell Type Association": "Expressed on various myeloid cells, including monocytes, macrophages, neutrophils, and some types of dendritic cells. It is a key marker in studying myeloid cells and their role in inflammation and immune responses.",
+        "Alternative name": "also known as Integrin alpha M, ITGAM"
+    },
+    "B-tubulin": {
+        "Functionality": "B-tubulin is a structural protein that forms part of the microtubule network within cells. Microtubules are essential for various cellular processes, including cell division, motility, and intracellular transport.",
+        "Cell Type Association": "Ubiquitously expressed in all eukaryotic cells. In pathology, it is often used to assess cell proliferation and as a target for anti-cancer drugs that disrupt microtubule function.",
+        "Alternative name": "B-tubulin"
+    },
+    "PAX5": {
+        "Functionality": "PAX5 is a transcription factor important for B cell development and function. It regulates the expression of genes necessary for B cell lineage commitment and maturation.",
+        "Cell Type Association": "Expressed in B cells from early progenitors through to mature B cells, but not in plasma cells. It is a key marker in the diagnosis of B cell neoplasms, such as acute lymphoblastic leukemia and non-Hodgkin lymphomas.",
+        "Alternative name": "Paired Box Protein Pax-5"
+    },
+    "HIF1A": {
+        "Functionality": "HIF1A is a transcription factor that responds to low oxygen levels (hypoxia) in cells. It regulates the expression of genes involved in angiogenesis, metabolism, and cell survival under hypoxic conditions.",
+        "Cell Type Association": "Expressed under hypoxic conditions in various cell types. It is significant in cancer research, as tumor hypoxia and HIF1A activation are associated with tumor progression and resistance to therapy.",
+        "Alternative name": "Hypoxia-Inducible Factor 1-Alpha"
+    },
+    "COX2": {
+        "Functionality": "COX2 is an enzyme that plays a key role in the conversion of arachidonic acid to prostaglandins, mediating inflammation and pain responses.",
+        "Cell Type Association": "Inducibly expressed in response to inflammatory stimuli in various cell types, including macrophages, endothelial cells, and some tumor cells. It is a target for nonsteroidal anti-inflammatory drugs (NSAIDs) and is studied in the context of inflammation, pain, and cancer.",
+        "Alternative name": "Cyclooxygenase-2"
+    },
+    "ER": {
+        "Functionality": "The estrogen receptor is a nuclear receptor that is activated by the hormone estrogen. It regulates the expression of genes involved in sexual development, reproduction, and other physiological processes.",
+        "Cell Type Association": "Expressed in various tissues including breast, uterus, and ovaries. ER status is critically important in the diagnosis and treatment of breast cancer, as ER-positive cancers are typically responsive to hormone therapy.",
+        "Alternative name": "Estrogen Receptor"
+    },
+    "P63": {
+        "Functionality": "P63 is a member of the p53 family of transcription factors, involved in the regulation of development and differentiation, particularly in stratified epithelial tissues.",
+        "Cell Type Association": "Expressed in the basal layers of stratified squamous epithelium and in the myoepithelial cells of the breast and salivary glands. It is a key marker in differentiating squamous cell carcinomas from other tumors and in identifying basal-like breast cancers.",
+        "Alternative name": "Tumor Protein p63, also known as TP63"
+    },
+    "MMP9": {
+        "Functionality": "MMP9, also known as gelatinase B, is an enzyme that degrades components of the extracellular matrix, including collagens and gelatins. It plays a crucial role in tissue remodeling, inflammation, and wound healing.",
+        "Cell Type Association": "Expressed by various cell types, including neutrophils, macrophages, and some cancer cells. MMP9 is significant in the study of cancer, particularly in tumor invasion and metastasis, as it helps in breaking down the extracellular matrix, facilitating tumor cell migration. It is also involved in inflammatory diseases and angiogenesis.",
+        "Alternative name": "Matrix Metallopeptidase 9"
+    },
+    "AR": {
+        "Functionality": "The Androgen Receptor is a type of nuclear receptor that is activated by binding to androgens, such as testosterone and dihydrotestosterone. It regulates the expression of genes that are involved in male sexual development and reproductive function, as well as in other physiological processes like muscle and bone growth.",
+        "Cell Type Association": "Widely expressed in tissues including the prostate, testes, ovaries, skin, bone, and certain areas of the brain. In pathology, AR is critically important in the diagnosis and treatment of prostate cancer, as well as in certain breast cancers. AR-positive cancers often respond to hormone therapy aimed at blocking androgen signaling.",
+        "Alternative name": "Androgen Receptor"
+    },
+    "Tryptase": {
+        "Functionality": "Tryptase is a type of protease secreted by mast cells. It participates in immune responses, particularly in inflammation, and plays a role in tissue remodeling.",
+        "Cell Type Association": "Secreted by mast cells, and its levels are often measured to evaluate mast cell activation. Tryptase is important in diagnosing systemic mast cell disorders and in the investigation of anaphylaxis.",
+        "Alternative name": "Tryptase"
+    },
+    "E-cadherin": {
+        "Functionality": "E-cadherin is a cell adhesion molecule critical for the establishment and maintenance of adherens junctions in epithelial tissues. It plays a key role in cell-cell adhesion, tissue integrity, and morphogenesis.",
+        "Cell Type Association": "Expressed predominantly in epithelial cells. It is a key marker in cancer pathology, as loss of E-cadherin expression is often associated with epithelial-mesenchymal transition (EMT), tumor invasion, and metastasis.",
+        "Alternative name": "Epithelial Cadherin, also known as CDH1"
+    },
+    "FAP": {
+        "Functionality": "FAP is a cell surface serine protease that degrades extracellular matrix components. It is involved in tissue remodeling, wound healing, and fibrosis.",
+        "Cell Type Association": "Expressed primarily by activated fibroblasts in stromal tissues, particularly in areas of tissue remodeling and fibrosis. FAP is significantly upregulated in cancer-associated fibroblasts (CAFs) within the tumor microenvironment and is a target for anti-cancer therapies aimed at modulating the tumor stroma.",
+        "Alternative name": "Fibroblast Activation Protein"
+    },
+    "GLUT1": {
+        "Functionality": "GLUT1 facilitates the transport of glucose across the plasma membranes of mammalian cells. It is essential for the uptake of glucose in tissues with a constant high-energy demand, like the brain.",
+        "Cell Type Association": "Expressed ubiquitously, but particularly high in erythrocytes and the blood-brain barrier. GLUT1 deficiency can lead to neurological disorders. In oncology, GLUT1 is studied for its role in the increased glucose uptake seen in many tumors (Warburg effect).",
+        "Alternative name": "Glucose Transporter 1"
+    },
+    "CD36": {
+        "Functionality": "CD36 is a multifunctional glycoprotein involved in various biological processes, including fatty acid metabolism, immune response, and the clearance of apoptotic cells. It acts as a receptor for thrombospondin, certain lipoproteins, and long-chain fatty acids.",
+        "Cell Type Association": "Widely expressed on adipocytes, muscle cells, epithelial cells, platelets, macrophages, and some other cell types. CD36 plays a significant role in lipid metabolism and cardiovascular diseases. It is also involved in the pathophysiology of metabolic disorders, atherosclerosis, and in the immune response to infection.",
+        "Alternative name": "Platelet Glycoprotein 4, Fatty Acid Translocase"
+    },
+    "HK1": {
+        "Functionality": "HK1 is an enzyme that catalyzes the first step in the glycolytic pathway, converting glucose to glucose-6-phosphate. It plays a fundamental role in glucose metabolism and energy production.",
+        "Cell Type Association": "Widely expressed, with high levels in tissues with a high rate of glycolysis, such as brain and muscle. HK1 is also studied in the context of cancer, as many tumors exhibit increased glycolysis (Warburg effect) and may have elevated levels of hexokinases.",
+        "Alternative name": "Hexokinase 1"
+    },
+    "PKM2": {
+        "Functionality": "PKM2 is an enzyme that catalyzes the final step of glycolysis, converting phosphoenolpyruvate to pyruvate. It plays a key role in aerobic glycolysis (Warburg effect) in cancer cells and in the regulation of metabolism.",
+        "Cell Type Association": "Expressed in various tissues, but its role is particularly highlighted in cancer cells, where it supports the high energy and biosynthetic demands of rapidly proliferating cells. PKM2 is a potential target for cancer therapy, given its role in tumor metabolism.",
+        "Alternative name": "Pyruvate Kinase M2"
+    },
+    "LDHA": {
+        "Functionality": "LDHA catalyzes the conversion of pyruvate to lactate in the final step of anaerobic glycolysis. It is important in cellular energy production, especially under hypoxic conditions.",
+        "Cell Type Association": "Expressed ubiquitously but upregulated in many cancers due to the Warburg effect, where cancer cells preferentially use glycolysis for energy production. LDHA is a potential target for cancer therapy and is also relevant in conditions involving altered metabolism.",
+        "Alternative name": "Lactate Dehydrogenase A"
+    },
+    "CPT1A": {
+        "Functionality": "CPT1A is an enzyme involved in the mitochondrial oxidation of long-chain fatty acids. It plays a key role in lipid metabolism, especially in the transport of fatty acids into mitochondria for beta-oxidation.",
+        "Cell Type Association": "Expressed in various tissues, particularly in the liver, kidney, and heart. Its role in fatty acid metabolism makes it relevant in the study of metabolic disorders and in conditions involving altered energy metabolism.",
+        "Alternative name": "Carnitine Palmitoyltransferase 1A"
+    },
+    "XBP1": {
+        "Functionality": "XBP1 is a transcription factor involved in the unfolded protein response (UPR), which is activated in response to endoplasmic reticulum (ER) stress. It helps in maintaining ER function and in the adaptive response to stress.",
+        "Cell Type Association": "Expressed in various tissues, particularly those with high rates of protein synthesis. XBP1 is significant in studies of cell stress and survival, including in cancer biology and in diseases related to protein misfolding.",
+        "Alternative name": "X-box Binding Protein 1"
+    },
+    "ATP5A": {
+        "Functionality": "ATP5A is a subunit of ATP synthase, an enzyme complex crucial for the production of ATP (adenosine triphosphate), the primary energy carrier in cells. It plays a key role in the mitochondrial oxidative phosphorylation process.",
+        "Cell Type Association": "Found in the mitochondria of virtually all eukaryotic cells. In pathology, altered expression or function of ATP5A is associated with various mitochondrial disorders and is studied in the context of energy metabolism in cancer cells.",
+        "Alternative name": "ATP Synthase Subunit Alpha"
+    },
+    "SDHA": {
+        "Functionality": "SDHA is a component of the succinate dehydrogenase complex (complex II) in the mitochondrial electron transport chain. It is involved in both the citric acid cycle and electron transport, contributing to aerobic respiration.",
+        "Cell Type Association": "Ubiquitously expressed in cells with mitochondria. Mutations in SDHA are associated with various mitochondrial disorders and some types of tumors, including paragangliomas and pheochromocytomas.",
+        "Alternative name": "Succinate Dehydrogenase Complex, Subunit A"
+    },
+    "CD57": {
+        "Functionality": "CD57 is a carbohydrate epitope present on a variety of glycoproteins and glycolipids. It is associated with cell adhesion, migration, and neural development. In the immune system, it is often considered a marker for terminally differentiated lymphocytes.",
+        "Cell Type Association": "Expressed on a subset of natural killer cells, T cells (especially CD8+ T cells with long-term effector functions), and some neural cells. CD57 is used in immunology as a marker for these cell types and is significant in studies of chronic viral infections, aging, and neurobiology.",
+        "Alternative name": "also known as HNK-1, Leu-7"
+    },
+    "CD98": {
+        "Functionality": "CD98 is a heterodimeric transmembrane protein involved in amino acid transport and integrin signaling. It plays a role in cell growth, survival, and nutrient uptake.",
+        "Cell Type Association": "Expressed on various cell types, including lymphocytes, epithelial cells, and endothelial cells. Its role in cell proliferation and amino acid transport makes it relevant in studies of cancer, as tumor cells often have increased nutrient requirements.",
+        "Alternative name": "4F2, SLC3A2"
+    },
+    "Na-K-ATPase": {
+        "Functionality": "Na-K-ATPase is an enzyme that maintains the cellular ion gradient by pumping sodium out of and potassium into the cell. It is essential for various physiological processes, including nerve transmission, muscle contraction, and kidney function.",
+        "Cell Type Association": "Ubiquitously expressed in all animal cells. Na-K-ATPase is crucial in physiology and pathology, particularly in disorders of electrolyte imbalance and in certain cardiac conditions where its function is targeted by drugs like digoxin.",
+        "Alternative name": "Sodium-Potassium ATPase"
+    },
+    "IDH": {
+        "Functionality": "IDH enzymes catalyze the oxidative decarboxylation of isocitrate, producing alpha-ketoglutarate. They play a key role in the TCA cycle and cellular metabolism.",
+        "Cell Type Association": "Expressed in various tissues. Mutations in IDH1 and IDH2 are significant in oncology, particularly in gliomas and acute myeloid leukemia, where they are associated with distinct metabolic and epigenetic alterations and have prognostic implications.",
+        "Alternative name": "Isocitrate Dehydrogenase"
+    },
+    "ASCT2": {
+        "Functionality": "ASCT2 is a transporter protein that mediates the uptake of certain amino acids, particularly alanine, serine, and cysteine, into cells. It plays a crucial role in amino acid metabolism and is involved in cellular nutrient uptake and homeostasis.",
+        "Cell Type Association": "Expressed in various tissues, including the kidneys, intestine, and brain. It is also upregulated in several types of cancer cells and is studied for its role in tumor metabolism and growth.",
+        "Alternative name": "Alanine, Serine, Cysteine Transporter 2"
+    },
+    "CD39": {
+        "Functionality": "CD39 is an enzyme that plays a role in purinergic signaling. It hydrolyzes extracellular ATP and ADP to AMP, modulating the local concentration of these nucleotides and thereby influencing various physiological and pathological processes, including inflammation and thrombosis.",
+        "Cell Type Association": "Expressed on a wide range of cells, including endothelial cells, platelets, and certain immune cells like regulatory T cells and dendritic cells. In immunology, CD39 is significant in the regulation of immune responses, particularly in the suppression of excessive inflammation. It is also studied in the context of cardiovascular diseases and cancer.",
+        "Alternative name": "Ectonucleoside Triphosphate Diphosphohydrolase 1"
+    },
+    "G6PD": {
+        "Functionality": "G6PD is a key enzyme in the pentose phosphate pathway, responsible for producing NADPH, a molecule crucial for maintaining the redox balance and for biosynthetic reactions. It plays a vital role in protecting cells from oxidative damage.",
+        "Cell Type Association": "Widely expressed in various tissues, with high levels in red blood cells. G6PD deficiency, a common genetic disorder, affects red blood cell survival and can lead to hemolytic anemia. In cancer research, G6PD is studied for its role in tumor cell metabolism and survival under oxidative stress.",
+        "Alternative name": "Glucose-6-Phosphate Dehydrogenase"
+    },
+    "NRF2": {
+        "Functionality": "NRF2 is a transcription factor that regulates the expression of antioxidant proteins and detoxifying enzymes. It plays a crucial role in cellular defense against oxidative stress and in the metabolism of xenobiotics.",
+        "Cell Type Association": "Expressed ubiquitously, with its activity regulated by various stress signals. NRF2 is significant in the study of diseases related to oxidative stress, including neurodegenerative diseases, cardiovascular diseases, and cancer.",
+        "Alternative name": "Nuclear Factor Erythroid 2-Related Factor 2"
+    },
+    "CS": {
+        "Functionality": "Citrate synthase is a key enzyme in the citric acid cycle (Krebs cycle). It catalyzes the synthesis of citrate from oxaloacetate and acetyl-CoA, playing a crucial role in cellular energy production.",
+        "Cell Type Association": "Ubiquitously expressed in the mitochondria of all cells. It is essential for cellular respiration and energy production, making it a fundamental marker in studies of cellular metabolism and bioenergetics.",
+        "Alternative name": "Citrate Synthase"
+    },
+    "VDAC1": {
+        "Functionality": "VDAC1 is a protein that forms an ion channel in the outer mitochondrial membrane and is involved in the regulation of metabolic and energetic functions of mitochondria.",
+        "Cell Type Association": "Ubiquitously expressed in various cell types. VDAC1 is important in the study of mitochondrial function, apoptosis, and in various diseases, including cancer and neurodegenerative disorders.",
+        "Alternative name": "Voltage-Dependent Anion Channel 1"
+    },
+    "Intelectin-1": {
+        "Functionality": "Intelectin-1 is a protein that can bind to galactofuranose, a component of microbial cell walls, suggesting a role in innate immunity. It is also involved in insulin signaling and metabolic processes.",
+        "Cell Type Association": "Expressed in intestinal epithelium, vascular endothelial cells, and adipose tissue. Intelectin-1 is studied in the context of metabolic disorders, including diabetes and obesity, and its role in the immune response to pathogens.",
+        "Alternative name": "Omentin"
+    },
+    "CD66": {
+        "Functionality": "The CD66 antigens belong to the carcinoembryonic antigen cell adhesion molecule (CEACAM) family. These molecules are involved in cell adhesion, signaling, and immune response modulation. They play roles in maintaining tissue architecture and in cellular differentiation.",
+        "Cell Type Association": "Expressed on various cell types including epithelial cells, immune cells, and certain cancer cells. CD66 antigens are used in cancer diagnosis and monitoring, particularly in gastrointestinal cancers, and are studied in the context of tumor biology and metastasis.",
+        "Alternative name": "CEACAM Family Members"
+    },
+    "MUC2": {
+        "Functionality": "MUC2 is a major component of mucus, providing a protective and lubricating gel layer in the intestinal tract. It plays a key role in intestinal barrier function and in preventing the invasion of pathogens.",
+        "Cell Type Association": "Predominantly expressed in the intestinal tract, specifically by goblet cells in the colon and small intestine. MUC2 is important in studies of gastrointestinal diseases, including inflammatory bowel disease and colorectal cancer.",
+        "Alternative name": "Mucin 2"
+    },
+    "CDX2": {
+        "Functionality": "CDX2 is a transcription factor important in embryonic development, particularly in the formation of the intestine. It regulates the expression of genes involved in intestinal cell differentiation and maintenance.",
+        "Cell Type Association": "Expressed in the cells of the intestinal epithelium. In pathology, CDX2 is used as a diagnostic marker for colorectal cancer and other tumors of intestinal origin.",
+        "Alternative name": "Caudal Type Homeobox 2"
+    },
+    "NKG2D": {
+        "Functionality": "NKG2D is an activating receptor found on natural killer cells and some T cells. It recognizes stress-induced ligands on infected or transformed cells, playing a key role in the immune surveillance against cancer and viral infections.",
+        "Cell Type Association": "Expressed on NK cells, CD8+ T cells, and some CD4+ T cells. NKG2D is important in immunology for its role in the destruction of abnormal cells and is a target for immunotherapy in cancer treatment.",
+        "Alternative name": "Natural Killer Group 2, Member D"
+    },
+    "c-kit": {
+        "Functionality": "c-kit is a receptor tyrosine kinase that binds to stem cell factor (SCF). It is involved in cell survival, proliferation, and differentiation, particularly in hematopoietic cells, melanocytes, and germ cells.",
+        "Cell Type Association": "Expressed in mast cells, hematopoietic stem cells, melanocytes, and germ cells. c-kit is a key marker in gastrointestinal stromal tumors (GISTs) and certain types of leukemia and melanoma. It is also a target for cancer therapy, as mutations in c-kit are involved in tumor development.",
+        "Alternative name": "CD117, KIT Proto-Oncogene, Receptor Tyrosine Kinase"
+    },
+    "CD19": {
+        "Functionality": "CD19 is a transmembrane protein that acts as a co-receptor for B cell receptor signaling. It plays a pivotal role in the development and function of B cells, enhancing the response to antigens.",
+        "Cell Type Association": "Expressed almost exclusively on B cells from early stages of development until their differentiation into plasma cells. CD19 is a primary marker used in the diagnosis and classification of B-cell malignancies, such as acute lymphoblastic leukemia (ALL) and chronic lymphocytic leukemia (CLL). It is also a target for certain immunotherapies, including CAR T-cell therapy, in treating B-cell cancers.",
+        "Alternative name": "B-lymphocyte antigen CD19"
+    },
+    "Col4": {
+        "Functionality": "Collagen Type IV is a type of collagen found primarily in the basement membranes, providing structural support and filtration in various tissues.",
+        "Cell Type Association": "Present in basement membranes of epithelial and endothelial cells, as well as in the kidneys, inner ear, and eyes. It is important in studies of tissue integrity, angiogenesis, and in diseases involving basement membrane dysfunction, such as Alport syndrome and Goodpasture's syndrome.",
+        "Alternative name": "Collagen Type IV"
+    },
+    "Synaptophysin": {
+        "Functionality": "Synaptophysin is a membrane glycoprotein present in presynaptic vesicles of neurons. It is involved in synaptic vesicle trafficking and neurotransmitter release.",
+        "Cell Type Association": "Found in neuronal and neuroendocrine cells. Synaptophysin is widely used as a marker for neuroendocrine cells and tumors, including neuroblastoma and small cell lung cancer, and in the diagnosis of various neurological diseases.",
+        "Alternative name": "Synaptophysin"
+    },
+    "Bcl-2": {
+        "Functionality": "Bcl-2 is a key regulatory protein in the apoptosis (programmed cell death) pathway. It functions mainly as an anti-apoptotic protein, inhibiting cell death and thus contributing to cell survival. The balance between Bcl-2 and other pro-apoptotic proteins is critical in regulating apoptosis.",
+        "Cell Type Association": "Expressed in a wide range of tissues, particularly in cells of the immune system such as B-cells. In pathology, overexpression of Bcl-2 is associated with various types of cancers, including non-Hodgkin lymphomas and some leukemias. Its expression is a crucial factor in the resistance of cancer cells to chemotherapy, as it can inhibit the apoptotic pathway that many anti-cancer drugs aim to activate.",
+        "Alternative name": "B-cell lymphoma 2"
+    },
+    "CD34": {
+        "Functionality": "CD34 is a transmembrane glycoprotein that functions as a cell-cell adhesion factor. It is primarily known for its role in hematopoietic stem cell identification and as a marker of early hematopoietic and endothelial progenitor cells.",
+        "Cell Type Association": "Expressed on the surface of hematopoietic stem cells, progenitor cells, and some endothelial cells. CD34 is a crucial marker used in the isolation and characterization of stem cells for research and therapeutic purposes, including bone marrow transplantation. It is also used in diagnosing certain types of leukemia and in identifying vascular tumors.",
+        "Alternative name": "CD34"
+    },
+    "CD49f": {
+        "Functionality": "CD49f forms a part of the integrin alpha-6/beta-1 and alpha-6/beta-4 complexes, which are involved in cell adhesion and migration. These integrins are important for the maintenance of epithelial integrity and play roles in wound healing and tissue remodeling.",
+        "Cell Type Association": "Expressed on epithelial cells, endothelial cells, and some subsets of lymphocytes. In pathology, CD49f is used as a marker for identifying epithelial cells and certain stem cells, including those in the hematopoietic system and in cancer stem cell research.",
+        "Alternative name": "Integrin Alpha 6"
+    },
+    "CgA": {
+        "Functionality": "Chromogranin A is a protein found in the secretory vesicles of neuroendocrine cells. It is involved in the formation of secretory granules and the storage and release of hormones and neuropeptides.",
+        "Cell Type Association": "Expressed in neuroendocrine cells, including those in the adrenal medulla, pituitary gland, thyroid gland, and the pancreas. In pathology, CgA is used as a marker for neuroendocrine tumors and is elevated in various neuroendocrine-related diseases.",
+        "Alternative name": "Chromogranin A"
+    },
+    "CD90": {
+        "Functionality": "CD90 is a glycosylphosphatidylinositol (GPI)-anchored protein involved in cell adhesion, migration, and proliferation. It plays a role in immune regulation, neuronal development, and wound healing.",
+        "Cell Type Association": "Expressed on thymocytes, some subsets of T cells, fibroblasts, and neuronal cells. CD90 is a marker for hematopoietic stem cells and is used in stem cell research, particularly in the identification and isolation of these cells.",
+        "Alternative name": "Thy-1"
+    },
+    "CD123": {
+        "Functionality": "CD123 is the alpha subunit of the interleukin-3 receptor. This receptor plays a role in the growth and differentiation of hematopoietic (blood-forming) cells, particularly in response to the cytokine interleukin-3.",
+        "Cell Type Association": "Highly expressed on hematopoietic progenitor cells and in some cases, overexpressed in hematological malignancies. CD123 is used as a marker in the diagnosis and classification of certain leukemias and lymphomas. It is also being explored as a therapeutic target in treatments for acute myeloid leukemia (AML) and other hematologic cancers.",
+        "Alternative name": "Interleukin-3 Receptor Alpha"
+    },
+    "CD15": {
+        "Functionality": "CD15 is a carbohydrate antigen involved in mediating phagocytosis and cell adhesion. It is a marker for granulocytes and plays a role in the immune system's response to infection and inflammation.",
+        "Cell Type Association": "Expressed on neutrophils, eosinophils, some types of monocytes, and Reed-Sternberg cells (characteristic of Hodgkin lymphoma). In pathology, CD15 is used as a diagnostic marker for Hodgkin lymphoma and in differentiating between Hodgkin and non-Hodgkin lymphomas. It is also helpful in identifying and classifying myeloid lineage leukemias.",
+        "Alternative name": "Lewis X, 3-FAL"
+    },
+    "CD49a": {
+        "Functionality": "CD49a is a subunit of the integrin alpha-1/beta-1 complex that mediates cell adhesion to the extracellular matrix and modulates cell migration and signaling. It plays a role in various physiological processes, including tissue repair and immune responses.",
+        "Cell Type Association": "Expressed on a variety of cell types, including activated T cells, some endothelial cells, and smooth muscle cells. CD49a is important in the context of inflammation and wound healing, as well as in the study of certain types of cancers where cell adhesion and migration are key factors.",
+        "Alternative name": "Integrin Alpha 1"
+    },
+    "CD7": {
+        "Functionality": "CD7 is a glycoprotein that plays a role in T cell and NK cell function, including cell adhesion and signal transduction. It is involved in the activation and differentiation of these immune cells.",
+        "Cell Type Association": "Expressed on T cells (both CD4+ and CD8+ subsets) and NK cells. CD7 is a key marker in hematopathology, used in the diagnosis of T-cell lymphomas and leukemias. Its expression or lack thereof can be significant in distinguishing between different types of lymphoid malignancies.",
+        "Alternative name": "CD7"
+    },
+    "OLFM4": {
+        "Functionality": "OLFM4 is a glycoprotein involved in cell adhesion, proliferation, and anti-apoptosis. It plays a role in the regulation of innate immunity and inflammation.",
+        "Cell Type Association": "Primarily expressed in the gastrointestinal tract, particularly in the stem cells of the crypts of the colon and small intestine. OLFM4 is used as a marker for intestinal stem cells and is studied in the context of gastrointestinal diseases, including inflammatory bowel disease and colorectal cancer.",
+        "Alternative name": "Olfactomedin 4"
+    },
+    "MUC1": {
+        "Functionality": "MUC1 is a glycoprotein that forms a protective mucous barrier on the surface of epithelial cells. It is involved in cell signaling, immune response modulation, and provides protection against infection.",
+        "Cell Type Association": "Expressed on the epithelial surfaces of various organs, including the respiratory and digestive tracts. MUC1 is a marker in various adenocarcinomas and is studied for its role in cancer progression and as a target for cancer therapy.",
+        "Alternative name": "Mucin 1, Cell Surface Associated"
+    },
+    "CD38": {
+        "Functionality": "CD38 is a transmembrane glycoprotein with both receptor and enzyme activities. It is involved in calcium signaling and plays a role in cell adhesion, signal transduction, and the regulation of immune responses.",
+        "Cell Type Association": "Expressed on various immune cells, including B cells, T cells, and natural killer cells, as well as on some non-hematopoietic cells. In pathology, CD38 is an important marker for multiple myeloma and some leukemias. It is also a target for certain therapeutic antibodies used in the treatment of multiple myeloma.",
+        "Alternative name": "CD38"
+    },
+    "CD127": {
+        "Functionality": "CD127 is the alpha chain of the interleukin-7 receptor, which is crucial for the development and survival of T cells and B cells. It plays a key role in lymphocyte homeostasis, particularly in the maturation and functioning of T cells.",
+        "Cell Type Association": "Expressed on various immune cells, including naive and memory T cells, and to some extent on B cells. Its expression is significant in the context of immunodeficiencies (like severe combined immunodeficiency), autoimmune diseases, and in the immune reconstitution after hematopoietic stem cell transplantation.",
+        "Alternative name": "Interleukin-7 Receptor Alpha"
+    },
+    "CD25": {
+        "Functionality": "CD25 is the alpha chain of the high-affinity interleukin-2 receptor. It plays a critical role in T cell proliferation and differentiation, particularly in response to the cytokine IL-2. CD25 is involved in regulating the immune response, including the development and function of regulatory T cells (Tregs).",
+        "Cell Type Association": "Expressed on activated T and B lymphocytes, and is a key marker for regulatory T cells (Tregs). In pathology, CD25 is used in identifying certain types of leukemia and lymphoma, such as adult T-cell leukemia/lymphoma and Hodgkin lymphoma. It is also important in autoimmune diseases and as a target for immunosuppressive therapies.",
+        "Alternative name": "Interleukin-2 Receptor Alpha"
+    },
+    "PDPN": {
+        "Functionality": "PDPN is a mucin-type glycoprotein involved in lymphangiogenesis and platelet aggregation. It plays a role in the development and function of lymphatic vessels and in cell migration.",
+        "Cell Type Association": "Expressed on lymphatic endothelial cells, some types of fibroblasts, and in various cancers. PDPN is used as a marker for lymphatic endothelium and is important in studies of lymphangiogenesis and cancer, especially in sarcomas and squamous cell carcinomas.",
+        "Alternative name": "Podoplanin"
+    },
+    "MUC6": {
+        "Functionality": "MUC6 is a glycoprotein that contributes to the composition of mucus, providing protective and lubricating properties. It helps in protecting the gastric epithelium from acidic conditions and enzymatic digestion.",
+        "Cell Type Association": "Expressed in the gastric mucosa, particularly in mucous glands of the stomach and duodenum. MUC6 is significant in the study of gastric and duodenal ulcers, gastritis, and gastric cancer.",
+        "Alternative name": "Mucin 6"
+    },
+    "IgA": {
+        "Functionality": "IgA is an antibody that plays a critical role in mucosal immunity. It is found in high concentrations in the mucous membranes, protecting against pathogens that enter the body through these routes.",
+        "Cell Type Association": "Produced by plasma cells located in mucosal areas such as the gut, respiratory tract, and urogenital tract. IgA is significant in studies of the immune response at mucosal surfaces and is important in diagnosing certain immune deficiencies and gastrointestinal disorders.",
+        "Alternative name": "Immunoglobulin A"
+    },
+    "Lysozyme": {
+        "Functionality": "Lysozyme is an enzyme that breaks down the cell walls of bacteria, contributing to the antibacterial activity of body fluids and immune defense.",
+        "Cell Type Association": "Found in a variety of secretions like saliva, tears, and human milk, and in granules of neutrophils and macrophages. In pathology, lysozyme is used as a marker for myeloid cells and is elevated in certain leukemias and inflammatory conditions.",
+        "Alternative name": "Lysozyme"
+    },
+    "IFNg": {
+        "Functionality": "IFNg is a cytokine critical for innate and adaptive immunity against viral and intracellular bacterial infections and for tumor control. It is a potent activator of macrophages and inducer of major histocompatibility complex (MHC) class I and II molecule expression.",
+        "Cell Type Association": "Produced mainly by T cells (particularly CD8+ cytotoxic T cells and CD4+ Th1 cells) and natural killer cells. IFNg is important in immunological research for its role in infectious diseases, autoimmunity, and as a therapeutic agent in certain cancers.",
+        "Alternative name": "Interferon gamma"
+    },
+    "iNOS": {
+        "Functionality": "iNOS is an enzyme that produces nitric oxide (NO), a reactive molecule involved in various physiological and pathological processes, including immune response, vasodilation, and neurotransmission.",
+        "Cell Type Association": "Induced in various cell types, including macrophages, in response to inflammatory stimuli. iNOS is significant in studies of inflammation, infectious diseases, and in conditions like sepsis and autoimmune disorders.",
+        "Alternative name": "Inducible Nitric Oxide Synthase"
+    },
+    "gdTCR": {
+        "Functionality": "Gamma delta TCRs are a distinct type of T-cell receptor found on a subset of T cells (gamma delta T cells). These receptors recognize a wide range of antigens without the need for antigen presentation by MHC molecules.",
+        "Cell Type Association": "Expressed on gamma delta T cells. These cells are important in innate immunity and have been a focus of research in cancer immunotherapy due to their potential to recognize and kill tumor cells.",
+        "Alternative name": "Gamma Delta T-Cell Receptor"
+    },
+    "CD94": {
+        "Functionality": "CD94 forms a complex with NKG2 molecules to create a receptor that recognizes the non-classical MHC class I molecule, HLA-E. It plays a role in the regulation of natural killer (NK) cell activity and T cell responses.",
+        "Cell Type Association": "Expressed predominantly on NK cells and some T cell subsets. CD94 is important in immunological studies of NK cell function and in understanding the immune response to viral infections and tumor cells.",
+        "Alternative name": "KLRD1, Killer Cell Lectin-Like Receptor Subfamily D, Member 1"
+    },
+    "CD8a": {
+        "Functionality": "CD8a is a component of the CD8 receptor found on cytotoxic T lymphocytes. It acts as a co-receptor for the T-cell receptor (TCR), playing a key role in antigen recognition and T cell activation.",
+        "Cell Type Association": "Expressed on cytotoxic T cells (CD8+ T cells) and some subsets of dendritic cells. CD8a is crucial in the immune response to intracellular pathogens and tumors, and its expression is used to identify cytotoxic T cells in various immunological studies and clinical diagnoses.",
+        "Alternative name": "CD8 alpha"
+    },
+    "TTF1": {
+        "Functionality": "TTF1 is a transcription factor involved in the development and differentiation of the thyroid gland, lungs, and ventral forebrain.",
+        "Cell Type Association": "Expressed in thyroid epithelial cells and pulmonary cells, including alveolar and bronchiolar epithelium. In pathology, TTF1 is used as a diagnostic marker for thyroid carcinoma, lung adenocarcinoma, and other lung cancers.",
+        "Alternative name": "Thyroid Transcription Factor 1, also known as NKX2-1"
+    },
+    "P2Y12": {
+        "Functionality": "P2Y12 is a receptor activated by adenosine diphosphate (ADP). It plays a key role in platelet activation and aggregation, and is a target for antithrombotic drugs.",
+        "Cell Type Association": "Expressed predominantly on platelets and some immune cells. P2Y12 is significant in cardiovascular medicine, particularly in the prevention and treatment of thrombotic events. Inhibitors of P2Y12, such as clopidogrel, are commonly used as antiplatelet agents.",
+        "Alternative name": "P2Y Purinoceptor 12"
+    },
+    "PMEL": {
+        "Functionality": "PMEL is involved in the formation and maturation of melanosomes, organelles that produce and store melanin in melanocytes.",
+        "Cell Type Association": "Expressed in melanocytes and plays a crucial role in pigmentation. PMEL is used as a marker in the study of melanocytes and is important in the diagnosis of melanocytic tumors, including melanoma.",
+        "Alternative name": "Premelanosome Protein"
+    },
+    "SOX2": {
+        "Functionality": "SOX2 is a transcription factor critical for maintaining the pluripotency of embryonic stem cells and in regulating the development of the nervous system.",
+        "Cell Type Association": "Expressed in embryonic stem cells, neural progenitor cells, and various cancers. SOX2 is a key factor in stem cell biology and regenerative medicine and is studied in the context of cancer stem cells and tumorigenesis.",
+        "Alternative name": "SRY-Box Transcription Factor 2"
+    },
+    "OLIG2": {
+        "Functionality": "OLIG2 is a transcription factor crucial for the development of oligodendrocytes, the cells that form myelin in the central nervous system. It also plays a role in neural progenitor cell differentiation.",
+        "Cell Type Association": "Expressed in the brain, particularly in oligodendrocyte precursor cells. OLIG2 is important in neurobiology and neuropathology, particularly in the study of brain development, demyelinating diseases like multiple sclerosis, and in certain types of brain tumors, including gliomas.",
+        "Alternative name": "Oligodendrocyte Transcription Factor 2"
+    },
+    "GFAP": {
+        "Functionality": "GFAP is an intermediate filament protein found in astrocytes, a type of glial cell in the central nervous system. It provides support and insulation for neurons and plays a role in the repair and scarring process following CNS injury.",
+        "Cell Type Association": "Expressed predominantly in astrocytes and is a key marker for identifying these cells. GFAP is used in neuropathology to diagnose astrocytomas and other gliomas, and its levels can be elevated in conditions like Alzheimer's disease and multiple sclerosis.",
+        "Alternative name": "Glial Fibrillary Acidic Protein"
+    },
+    "MCT1": {
+        "Functionality": "MCT1 is a transporter protein that facilitates the movement of monocarboxylates such as lactate and pyruvate across cell membranes. It plays a role in cellular metabolism and pH regulation.",
+        "Cell Type Association": "Expressed in many tissues, including muscle, brain, and tumors. MCT1 is important in studies of metabolism, particularly in cancer cells where lactate transport is crucial for maintaining the acidic tumor microenvironment.",
+        "Alternative name": "Monocarboxylate Transporter 1"
+    },
+    "gH2AX": {
+        "Functionality": "gH2AX is a variant of the H2AX protein that becomes phosphorylated at sites of DNA double-strand breaks. It plays a crucial role in the cellular response to DNA damage and in the repair process.",
+        "Cell Type Association": "Expressed in cells in response to DNA damage. The presence of gH2AX is used as a marker for assessing DNA damage and repair mechanisms, important in cancer biology, radiobiology, and in evaluating the efficacy of DNA-damaging agents in cancer therapy.",
+        "Alternative name": "gamma-H2AX"
+    },
+    "IL6": {
+        "Functionality": "IL6 is a cytokine that plays roles in inflammation, immune response, and hematopoiesis. It is involved in the acute phase response, B-cell maturation, and T-cell activation.",
+        "Cell Type Association": "Produced by various cell types, including T cells, B cells, macrophages, and endothelial cells. IL6 is a key cytokine in chronic inflammation and is implicated in autoimmune diseases, such as rheumatoid arthritis, and in various cancers.",
+        "Alternative name": "Interleukin 6"
+    },
+    "Amylase": {
+        "Functionality": "Amylase is an enzyme that breaks down starches into sugars. It is essential in the digestive process, facilitating the conversion of complex carbohydrates into simpler sugars for absorption.",
+        "Cell Type Association": "Produced primarily in the pancreas and salivary glands. In pathology, amylase is often measured in blood and urine tests as an indicator of pancreatic function, with elevated levels potentially indicating pancreatic injury or disorders like pancreatitis.",
+        "Alternative name": "Amylase"
+    },
+    "CXCL5": {
+        "Functionality": "CXCL5 is a chemokine that attracts neutrophils and plays a role in the inflammatory response. It is involved in mediating cell migration and activation during immune responses.",
+        "Cell Type Association": "Produced by various cell types, including epithelial cells, endothelial cells, and certain immune cells. CXCL5 is significant in the study of inflammation, wound healing, and in certain cancers where it can modulate the tumor microenvironment.",
+        "Alternative name": "C-X-C Motif Chemokine Ligand 5"
+    },
+    "GATA6": {
+        "Functionality": "GATA6 is a transcription factor involved in the regulation of gene expression in various tissues, especially in the development and differentiation of the heart, gut, and pancreas.",
+        "Cell Type Association": "Expressed in endodermal and mesodermal-derived tissues, including pancreatic cells and cardiac cells. GATA6 is significant in developmental biology and in diseases such as congenital heart defects and pancreatic disorders.",
+        "Alternative name": "GATA Binding Protein 6"
+    },
+    "MMP7": {
+        "Functionality": "MMP7, also known as matrilysin, is an enzyme that degrades various components of the extracellular matrix. It is involved in tissue remodeling, wound healing, and in pathological processes such as tumor invasion and metastasis.",
+        "Cell Type Association": "Expressed in epithelial cells and some cancer cells. MMP7 is significant in cancer research for its role in promoting tumor growth, invasion, and metastasis, and is a potential target for anti-cancer therapies.",
+        "Alternative name": "Matrix Metallopeptidase 7"
+    },
+    "FASN": {
+        "Functionality": "FASN is an enzyme that catalyzes the synthesis of long-chain fatty acids from acetyl-CoA and malonyl-CoA. It is essential for lipid biosynthesis and energy storage.",
+        "Cell Type Association": "Expressed in various tissues, including the liver, adipose tissue, and mammary glands. FASN is often upregulated in cancer cells and is associated with metabolic reprogramming in tumors. It is a potential target for cancer therapy, as inhibiting FASN can disrupt the lipid metabolism essential for tumor cell growth and survival.",
+        "Alternative name": "Fatty Acid Synthase"
+    },
+    "CD80": {
+        "Functionality": "CD80 is a co-stimulatory molecule involved in the activation of T cells. It binds to CD28 and CTLA-4 on T cells, playing a crucial role in regulating immune responses and maintaining immune tolerance.",
+        "Cell Type Association": "Expressed on antigen-presenting cells like dendritic cells, B cells, and activated macrophages. CD80 is important in immunology for its role in T cell activation and is a target in immunotherapeutic strategies for autoimmune diseases and cancer.",
+        "Alternative name": "B7-1"
+    },
+    "HO1": {
+        "Functionality": "HO1 is an enzyme that catalyzes the degradation of heme to biliverdin, carbon monoxide, and free iron. It is involved in cellular defense mechanisms against oxidative stress and has anti-inflammatory properties.",
+        "Cell Type Association": "Inducible in various tissues in response to stress stimuli. HO1 is important in the context of cellular protection against oxidative injury and is studied in various diseases, including cardiovascular disorders, chronic inflammation, and cancer.",
+        "Alternative name": "Heme Oxygenase 1"
+    },
+    "Galectin9": {
+        "Functionality": "Galectin9 is a member of the galectin family, a group of beta-galactoside-binding proteins involved in cell-cell and cell-matrix interactions, immune responses, and apoptosis.",
+        "Cell Type Association": "Expressed in various tissues, including the immune system, where it can regulate T cell survival and function. Galectin9 is studied in cancer immunotherapy, as it interacts with the TIM-3 receptor on T cells and can modulate immune responses.",
+        "Alternative name": "Gal-9"
+    },
+    "HLA-G": {
+        "Functionality": "HLA-G is a non-classical MHC class I antigen involved in immune tolerance, particularly in pregnancy, where it helps to protect the fetus from maternal immune rejection.",
+        "Cell Type Association": "Expressed in placental trophoblasts, some immune cells, and can be upregulated in certain cancer cells. HLA-G is significant in studies of maternal-fetal tolerance, organ transplantation, and is investigated for its role in cancer immune evasion.",
+        "Alternative name": "Human Leukocyte Antigen G"
+    },
+    "TIGIT": {
+        "Functionality": "TIGIT is an immune checkpoint receptor expressed on T cells and NK cells. It negatively regulates immune responses by inhibiting T cell activation and NK cell cytotoxicity.",
+        "Cell Type Association": "Expressed on regulatory T cells (Tregs), activated T cells, and NK cells. TIGIT is significant in immunological research and cancer immunotherapy, as it plays a role in tumor immune evasion and is a potential target for cancer treatment.",
+        "Alternative name": "T cell Immunoreceptor with Ig and ITIM domains"
+    },
+    "ICOS": {
+        "Functionality": "ICOS is a co-stimulatory molecule that plays a critical role in T cell activation and survival. It enhances immune responses, particularly T cell-dependent antibody responses.",
+        "Cell Type Association": "Expressed on activated T cells, particularly on follicular helper T cells (Tfh). ICOS is important in the regulation of immune responses, including in autoimmune diseases and allergies, and is a target in immunotherapy for cancer and other immune-related disorders.",
+        "Alternative name": "Inducible T-cell COStimulator"
+    },
+    "Lck": {
+        "Functionality": "Lck is a tyrosine kinase that plays a key role in T-cell receptor (TCR) signaling, critical for T-cell development and activation.",
+        "Cell Type Association": "Expressed predominantly in T cells. Lck is essential for T-cell receptor signaling and is a target for drugs in autoimmune diseases and in some forms of leukemia.",
+        "Alternative name": "Lymphocyte-Specific Protein Tyrosine Kinase"
+    },
+    "ARG1": {
+        "Functionality": "ARG1 is an enzyme that catalyzes the conversion of arginine to ornithine and urea. It plays a key role in the urea cycle, helping to detoxify ammonia in the liver. ARG1 is also involved in modulating immune responses and tumor growth.",
+        "Cell Type Association": "Predominantly expressed in liver hepatocytes. In immunology, ARG1 expression in myeloid-derived suppressor cells (MDSCs) is studied for its role in suppressing immune responses in cancer and other diseases.",
+        "Alternative name": "Arginase 1"
+    },
+    "CD73": {
+        "Functionality": "CD73 is an enzyme involved in the production of adenosine by dephosphorylating AMP to adenosine. It plays a role in regulating immune responses, inflammation, and tissue repair.",
+        "Cell Type Association": "Expressed on various cell types, including endothelial cells, immune cells, and some tumor cells. CD73 is significant in immunoregulation and cancer biology, where it contributes to the immunosuppressive tumor microenvironment.",
+        "Alternative name": "Ecto-5'-Nucleotidase"
+    },
+    "CD79a": {
+        "Functionality": "CD79a, along with CD79b, forms part of the B-cell antigen receptor complex, essential for B-cell development and antigen receptor signaling.",
+        "Cell Type Association": "Expressed on B cells from early development stages to mature cells, but not on plasma cells. CD79a is a key marker in the diagnosis of B-cell lymphomas and leukemias and is used to identify B-cell lineage in hematological malignancies.",
+        "Alternative name": "B-Cell Antigen Receptor Complex-Associated Protein Alpha Chain"
+    },
+    "MUC5AC": {
+        "Functionality": "MUC5AC is a glycoprotein that is a major component of mucous secretions. It plays a role in forming the protective mucous layer of the gastrointestinal, respiratory, and reproductive tracts.",
+        "Cell Type Association": "Expressed in mucous cells of the stomach, respiratory epithelium, and endocervical epithelium. MUC5AC is studied in the context of various diseases, including chronic gastritis, cystic fibrosis, and asthma, and in mucinous carcinomas.",
+        "Alternative name": "Mucin 5AC"
+    },
+    "Nestin": {
+        "Functionality": "Nestin is an intermediate filament protein expressed in dividing cells during the early stages of development in the central nervous system. It is involved in the structural organization of the cell and in cell signaling.",
+        "Cell Type Association": "Expressed in neural stem cells and progenitor cells. Nestin is used as a marker for neural progenitor cells and is significant in studies of neurogenesis and neurodegenerative diseases. It is also expressed in some types of cancer cells and is associated with aggressive tumor behavior.",
+        "Alternative name": "Nestin"
+    },
+    "PGA3": {
+        "Functionality": "PGA3 is a precursor to pepsin, a digestive enzyme that breaks down proteins in the stomach. It is one of the pepsinogens secreted by the gastric mucosa.",
+        "Cell Type Association": "Produced by chief cells in the stomach. The measurement of pepsinogen levels can be used as an indicator of gastric function and for screening for gastric atrophy and gastric cancer risk.",
+        "Alternative name": "Pepsinogen 3, Group I (Pepsinogen A)"
+    },
+    "S100A4": {
+        "Functionality": "S100A4 is a member of the S100 family of proteins involved in several processes including cell motility, invasion, and survival. It has been implicated in tumor metastasis and fibrosis.",
+        "Cell Type Association": "Expressed in various cell types including fibroblasts, some immune cells, and cancer cells. S100A4 is significant in cancer research, particularly in studies of cancer progression and metastasis, and in fibrotic diseases.",
+        "Alternative name": "Fibroblast-Specific Protein 1, FSP1"
+    },
+    "YAP": {
+        "Functionality": "YAP is a transcriptional co-activator involved in the Hippo signaling pathway, which regulates cell proliferation, apoptosis, and organ size. YAP activity is linked to cell growth, tissue regeneration, and cancer development.",
+        "Cell Type Association": "Expressed in various tissues. Its overexpression or dysregulation is often found in cancers and is associated with poor prognosis. YAP is a target of interest in cancer therapy and regenerative medicine.",
+        "Alternative name": "Yes-Associated Protein"
+    },
+    "p16": {
+        "Functionality": "p16 is a tumor suppressor protein that inhibits cyclin-dependent kinases CDK4 and CDK6, thereby regulating the cell cycle and preventing uncontrolled cell division.",
+        "Cell Type Association": "Its expression is a marker for cellular senescence and is used in cancer diagnostics. Loss of p16 function is commonly found in a wide range of cancers and is associated with increased cancer risk.",
+        "Alternative name": "CDKN2A, Cyclin-Dependent Kinase Inhibitor 2A"
+    },
+    "DEFA5": {
+        "Functionality": "DEFA5 is a type of antimicrobial peptide belonging to the alpha-defensin family. It is primarily involved in the innate immune response, providing the first line of defense against a wide range of pathogens by disrupting their membrane integrity.",
+        "Cell Type Association": "Predominantly produced by Paneth cells in the small intestine. DEFA5 plays a critical role in maintaining intestinal homeostasis and protecting the gut mucosa from bacterial infections. It is also studied for its implications in inflammatory bowel disease and other gastrointestinal disorders.",
+        "Alternative name": "Defensin, Alpha 5"
+    },
+    "CD33": {
+        "Functionality": "CD33 is a member of the sialic acid-binding Ig-like lectin (Siglec) family, involved in cell-cell interactions and modulation of immune responses. It acts as an inhibitory receptor on the surface of immune cells.",
+        "Cell Type Association": "Expressed mainly on cells of the myeloid lineage, including monocytes, macrophages, dendritic cells, and myeloid progenitor cells. CD33 is a significant marker in acute myeloid leukemia (AML) and is targeted by certain therapeutics, such as antibody-drug conjugates, for the treatment of AML.",
+        "Alternative name": "Siglec-3"
+    },
+    "CD161": {
+        "Functionality": "CD161 acts as a receptor involved in regulating the function of NK cells and a subset of T cells. It plays a role in mediating immune responses to infectious agents and in tumor surveillance.",
+        "Cell Type Association": "Expressed on natural killer (NK) cells, NKT cells, and some subsets of T cells. CD161 is important in studies of innate and adaptive immunity, particularly in the context of infectious diseases and cancer immunology.",
+        "Alternative name": "KLRB1, Killer Cell Lectin-Like Receptor Subfamily B Member 1"
+    },
+    "CD294": {
+        "Functionality": "CD294 is a receptor for prostaglandin D2 (PGD2) and plays a role in mediating allergic and inflammatory responses. It is involved in the recruitment of Th2 cells to sites of inflammation and in the regulation of eosinophil and basophil migration.",
+        "Cell Type Association": "Expressed predominantly on Th2 lymphocytes, eosinophils, basophils, and certain types of innate lymphoid cells. CD294 is significant in the study of allergic diseases, such as asthma and atopic dermatitis, and is a potential target for therapeutic intervention in allergic and inflammatory disorders.",
+        "Alternative name": "CRTH2, Chemoattractant Receptor-Homologous Molecule Expressed on Th2 Cells"
+    },
+    "SOMATOSTATIN": {
+        "Functionality": "Somatostatin is a peptide hormone that inhibits the secretion of several other hormones, including growth hormone, thyroid-stimulating hormone, and insulin. It also suppresses the release of gastrointestinal hormones and reduces gastric acid secretion and gut motility.",
+        "Cell Type Association": "Produced by neuroendocrine cells found in the gastrointestinal tract, pancreas, and hypothalamus. Somatostatin has a broad range of actions and is used therapeutically in the treatment of acromegaly, thyrotoxicosis, and to reduce hormone secretion in certain neuroendocrine tumors.",
+        "Alternative name": "growth hormone-inhibiting hormone (GHIH)"
+    },
+    "CD107a": {
+        "Functionality": "CD107a is a protein located on the membrane of lysosomes and is involved in lysosomal function and cell membrane repair. It's often used as a degranulation marker for cytotoxic cells, indicating the release of lysosome contents during cell-mediated cytotoxicity.",
+        "Cell Type Association": "Expressed on the surface of cytotoxic T cells and NK cells upon activation and degranulation. CD107a is significant in immunological studies related to cell-mediated cytotoxicity, particularly in the context of immune responses to infections and in tumor immunity.",
+        "Alternative name": "Lysosome-Associated Membrane Protein 1, LAMP-1"
+    },
+    "CD1c": {
+        "Functionality": "CD1c is part of the CD1 group of glycoproteins that present lipid and glycolipid antigens to T cells, playing a role in the immune response to bacterial pathogens and in antigen presentation.",
+        "Cell Type Association": "Expressed predominantly on dendritic cells and some B cells. CD1c is important for understanding the interactions between the immune system and lipid-containing antigens, playing a role in immune responses against mycobacteria and other pathogens.",
+        "Alternative name": "Cluster of Differentiation 1c"
+    },
+    "CD35": {
+        "Functionality": "CD35 is a receptor for C3b and C4b components of the complement system, playing a critical role in the clearance of immune complexes and in modulating complement activation.",
+        "Cell Type Association": "Expressed on erythrocytes, leukocytes, and some types of epithelial cells. CD35 is involved in immune regulation and is important in the pathophysiology of autoimmune diseases, where complement activation plays a role.",
+        "Alternative name": "Complement Receptor 1, CR1"
+    },
+    "CD5": {
+        "Functionality": "CD5 is a surface glycoprotein involved in regulating T cell activation and differentiation. It also influences B cell receptor signaling and is important in maintaining tolerance and preventing autoimmune responses.",
+        "Cell Type Association": "Expressed on T cells and a subset of B cells known as B-1 cells. CD5 is used as a marker in leukemia and lymphoma diagnostics, particularly for T-cell leukemias and chronic lymphocytic leukemia (CLL), where it helps differentiate between leukemic cell types.",
+        "Alternative name": "LEU1, T1"
+    },
+    "Lyve1": {
+        "Functionality": "Lyve1 is a receptor for hyaluronan, a major component of the extracellular matrix. It plays a role in lymphangiogenesis and in the regulation of lymphatic vessel permeability.",
+        "Cell Type Association": "Expressed primarily on lymphatic endothelial cells. Lyve1 is important in studies of lymphatic system development and function, and is used as a marker for identifying lymphatic vessels in research related to cancer metastasis, inflammation, and lymphedema.",
+        "Alternative name": "Lymphatic Vessel Endothelial Hyaluronan Receptor 1"
+    }
+}

@@ -86,11 +86,11 @@ def patch_generator(raw, mask, cell_index, cell_type, mpp, dct_config):
     raw = np.transpose(raw, (1, 2, 0))  # (H, W, C)
     mask = mask[0]  # (H, W), only take the whole cell mask, TODO: this is not consistent across all files, fix this 
 
-    raw = rescale(raw, dct_config.STANDARD_MPP_RESOLUTION / mpp, preserve_range=True, channel_axis=-1)
+    raw = rescale(raw, mpp / dct_config.STANDARD_MPP_RESOLUTION, preserve_range=True, channel_axis=-1)
 
     mask = rescale(
         mask,
-        dct_config.STANDARD_MPP_RESOLUTION / mpp,
+        mpp / dct_config.STANDARD_MPP_RESOLUTION,
         order=0,
         preserve_range=True,
         anti_aliasing=False,

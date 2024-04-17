@@ -100,43 +100,15 @@ def parse_tfr_training_example(example, celltype_mapper_table):
     return X, y
 
 
-def parse_single_example(app, index, fname, ct, tissue_folder, orig_ct, channel_list):
-    dct_config = DCTConfig()
 
-    num_channels = app.shape[0]
+def parse_single_example(app, index, fname, ct, tissue_folder, orig_ct, channel_list_padded, num_channels, padding_length, padding_mask, dct_config, marker_positivity_mask_dict):
 
-    # padding
-    padding_length = dct_config.MAX_NUM_CHANNELS - num_channels
+    marker_positivity = marker_positivity_mask_dict[ct]
 
     paddings = np.array([[0, padding_length], [0, 0], [0, 0], [0, 0]])
 
     app_padded = np.pad(app, paddings, mode="constant", constant_values=0)
 
-    channel_list_padded = channel_list + ["None"] * padding_length
-
-    padding_mask = np.zeros(
-        (dct_config.MAX_NUM_CHANNELS, dct_config.MAX_NUM_CHANNELS), dtype=np.int32
-    )
-    padding_mask[:num_channels, :num_channels] = 1
-
-    positive_channels = dct_config.positivity_mapping.get(ct, [0])
-    positive_channels_dataset_specific = []
-    if tissue_folder in dct_config.positivity_mapping_dataset_specific:
-        tissue_marker_pos_dict = dct_config.positivity_mapping_dataset_specific[
-            tissue_folder
-        ]
-        if orig_ct in tissue_marker_pos_dict:
-            positive_channels_dataset_specific = tissue_marker_pos_dict[orig_ct]
-    # print(positive_channels_dataset_specific)
-
-    marker_positivity = [
-        True
-        if ch in positive_channels or ch in positive_channels_dataset_specific
-        else False
-        for ch in channel_list
-    ] + [False] * padding_length
-    marker_positivity = np.array(marker_positivity, dtype=np.int32)
-    # print(marker_positivity)
 
     assert app_padded.dtype == np.float32
     assert padding_mask.dtype == np.int32

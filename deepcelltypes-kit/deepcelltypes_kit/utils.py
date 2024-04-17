@@ -1,3 +1,4 @@
+import numpy as np
 import yaml
 from pathlib import Path
 
@@ -67,8 +68,36 @@ def choose_channels(channel_names, channel_mapping):
             channel_mask.append(False)
         else:
             raise ValueError(f"Channel name {ch} not found in channel_mapping.yaml")
+        
+    channel_slices = np.where(channel_mask)[0]
 
-    return channel_mask, channel_names_updated
+    return channel_slices, channel_names_updated
+
+
+
+def create_marker_positivity_mask(unique_cell_types, dataset_name, channel_list, padding_length, dct_config):
+    marker_positivity_mask_dict = {}
+    for orig_ct in unique_cell_types:
+        ct = dct_config.celltype_mapping[dataset_name][orig_ct]
+        positive_channels = dct_config.positivity_mapping.get(ct, [0])
+        positive_channels_dataset_specific = []
+        if dataset_name in dct_config.positivity_mapping_dataset_specific:
+            tissue_marker_pos_dict = dct_config.positivity_mapping_dataset_specific[
+                dataset_name
+            ]
+            if orig_ct in tissue_marker_pos_dict:
+                positive_channels_dataset_specific = tissue_marker_pos_dict[orig_ct]
+
+        marker_positivity = [
+            True
+            if ch in positive_channels or ch in positive_channels_dataset_specific
+            else False
+            for ch in channel_list
+        ] + [False] * padding_length
+        marker_positivity = np.array(marker_positivity, dtype=np.int32)
+        marker_positivity_mask_dict[ct] = marker_positivity
+    
+    return marker_positivity_mask_dict
 
 
 

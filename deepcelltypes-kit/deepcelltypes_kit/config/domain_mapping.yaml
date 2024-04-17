@@ -29,3 +29,9 @@ Tissue-Thymus/Liu_Validation_MIBI: MIBI
 Tissue-Tonsil/Liu_Validation_MIBI: MIBI
 Tissue-Tonsil/Nolan_Stellar_CODEX: CODEX
 Tissue-GI/Nolan_Stellar_CODEX: CODEX
+Tissue-GI/DryadB004_Intestine_CODEX: CODEX
+Tissue-GI/DryadB005_Intestine_CODEX: CODEX
+Tissue-GI/DryadB006_Intestine_CODEX: CODEX
+Tissue-GI/DryadB008_Intestine_CODEX: CODEX
+Tissue-GI/DryadRest_Intestine_CODEX: CODEX
+Tissue-Spleen/Fan_UF_CODEX: CODEX

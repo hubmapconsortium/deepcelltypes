@@ -101,7 +101,7 @@ Myoepithelial:
 EVT:
     - HLA-G
 Acinar:
-    -  Amylase
+    - Amylase
 Paneth:
     - DEFAL5
 Stellate:

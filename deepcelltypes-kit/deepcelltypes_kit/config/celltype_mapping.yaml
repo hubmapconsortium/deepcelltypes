@@ -27,7 +27,7 @@
 # MHC I^{hi}CD57^{+}: Unknown # TODO: Tumor??
 # MHC^{hi}CD15^{+}: Unknown # TODO: Tumor??
 # Macrophages: Macrophage
-# Macrophages & granulocytes: Granulocytes
+# Macrophages & granulocytes: Granulocyte
 # Myofibroblasts: Myofibroblast
 # Myofibroblasts PDPN^{+}: Myofibroblast
 # T_{Reg} & T_{Ex}: Tcell # TODO: double check
@@ -586,3 +586,146 @@ Tissue-GI/Nolan_Stellar_CODEX:
     Glandular_epi: Epithelial
     Secretory_epithelial: Secretory
     Paneth: Paneth
+Tissue-GI/DryadB004_Intestine_CODEX:
+    NK: NK
+    Enterocyte: Enterocyte
+    MUC1+ Enterocyte: Enterocyte
+    TA: TransitAmplifying
+    CD66+ Enterocyte: Enterocyte
+    Paneth: Paneth
+    Smooth muscle: SmoothMuscle
+    M1 Macrophage: M1Macrophage
+    Goblet: Goblet
+    Neuroendocrine: Neuroendocrine
+    CD57+ Enterocyte: Enterocyte
+    Lymphatic: LymphaticEndothelial
+    CD8+ T: CD8T
+    DC: Dendritic
+    M2 Macrophage: M2Macrophage
+    B: Bcell
+    Neutrophil: Neutrophil
+    Endothelial: Endothelial
+    Cycling TA: TransitAmplifying
+    Plasma: Plasma
+    CD4+ T cell: CD4T
+    Stroma: Stromal
+    Nerve: Nerve
+    ICC: ICC
+    CD7+ Immune: Lymphocyte
+Tissue-GI/DryadB005_Intestine_CODEX:
+    NK: NK
+    Enterocyte: Enterocyte
+    MUC1+ Enterocyte: Enterocyte
+    TA: TransitAmplifying
+    CD66+ Enterocyte: Enterocyte
+    Paneth: Paneth
+    Smooth muscle: SmoothMuscle
+    M1 Macrophage: M1Macrophage
+    Goblet: Goblet
+    Neuroendocrine: Neuroendocrine
+    CD57+ Enterocyte: Enterocyte
+    Lymphatic: LymphaticEndothelial
+    CD8+ T: CD8T
+    DC: Dendritic
+    M2 Macrophage: M2Macrophage
+    B: Bcell
+    Neutrophil: Neutrophil
+    Endothelial: Endothelial
+    Cycling TA: TransitAmplifying
+    Plasma: Plasma
+    CD4+ T cell: CD4T
+    Stroma: Stromal
+    Nerve: Nerve
+    ICC: ICC
+    CD7+ Immune: Lymphocyte
+Tissue-GI/DryadB006_Intestine_CODEX:
+    NK: NK
+    Enterocyte: Enterocyte
+    MUC1+ Enterocyte: Enterocyte
+    TA: TransitAmplifying
+    CD66+ Enterocyte: Enterocyte
+    Paneth: Paneth
+    Smooth muscle: SmoothMuscle
+    M1 Macrophage: M1Macrophage
+    Goblet: Goblet
+    Neuroendocrine: Neuroendocrine
+    CD57+ Enterocyte: Enterocyte
+    Lymphatic: LymphaticEndothelial
+    CD8+ T: CD8T
+    DC: Dendritic
+    M2 Macrophage: M2Macrophage
+    B: Bcell
+    Neutrophil: Neutrophil
+    Endothelial: Endothelial
+    Cycling TA: TransitAmplifying
+    Plasma: Plasma
+    CD4+ T cell: CD4T
+    Stroma: Stromal
+    Nerve: Nerve
+    ICC: ICC
+    CD7+ Immune: Lymphocyte
+Tissue-GI/DryadB008_Intestine_CODEX:
+    NK: NK
+    Enterocyte: Enterocyte
+    MUC1+ Enterocyte: Enterocyte
+    TA: TransitAmplifying
+    CD66+ Enterocyte: Enterocyte
+    Paneth: Paneth
+    Smooth muscle: SmoothMuscle
+    M1 Macrophage: M1Macrophage
+    Goblet: Goblet
+    Neuroendocrine: Neuroendocrine
+    CD57+ Enterocyte: Enterocyte
+    Lymphatic: LymphaticEndothelial
+    CD8+ T: CD8T
+    DC: Dendritic
+    M2 Macrophage: M2Macrophage
+    B: Bcell
+    Neutrophil: Neutrophil
+    Endothelial: Endothelial
+    Cycling TA: TransitAmplifying
+    Plasma: Plasma
+    CD4+ T cell: CD4T
+    Stroma: Stromal
+    Nerve: Nerve
+    ICC: ICC
+    CD7+ Immune: Lymphocyte
+Tissue-GI/DryadRest_Intestine_CODEX:
+    B: Bcell
+    CD66+ Enterocyte: Enterocyte
+    Cycling TA: TransitAmplifying
+    Enterocyte: Enterocyte
+    Lymphatic: LymphaticEndothelial
+    MUC1+ Enterocyte: Enterocyte
+    Neutrophil: Neutrophil
+    Plasma: Plasma
+    TA: TransitAmplifying
+    CD4+ T cell: CD4T
+    CD7+ Immune: Lymphocyte
+    DC: Dendritic
+    Goblet: Goblet
+    M1 Macrophage: M1Macrophage
+    Nerve: Nerve
+    NK: NK
+    Smooth muscle: SmoothMuscle
+    CD57+ Enterocyte: Enterocyte
+    CD8+ T: CD8T
+    Endothelial: Endothelial
+    ICC: ICC
+    M2 Macrophage: M2Macrophage
+    Neuroendocrine: Neuroendocrine
+    Paneth: Paneth
+    Stroma: Stromal
+Tissue-Spleen/Fan_UF_CODEX:
+    B cells, red pulp: Bcell
+    Blood endothelial: BloodVesselEndothelial
+    CD4 Memory T cells: CD4T
+    CD8 Memory T cells: CD8T
+    Fol B cells: Bcell
+    Ki67 proliferating: Unknown # Make it a unique category!
+    Macrophages: Macrophage
+    Myeloid cells: Myeloid
+    Neutrophils_Monocytes: Myeloid # maybe make this category more specific? "/" replaced with "_" to avoid creating subfolders
+    Podoplanin: Stromal # need to double check
+    Sinusoidal cells: Endothelial
+    indistinct: Unknown

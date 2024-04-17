@@ -1,11 +1,19 @@
 import os
 from pathlib import Path
 import yaml
+import json
+import sys
+import logging
 import numpy as np
 from .utils import flatten_nested_dict
 from matplotlib.colors import to_rgb
 import matplotlib.pyplot as plt
 import networkx as nx
+
+logging.basicConfig(level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S',
+    handlers=[logging.StreamHandler(sys.stdout)])
 
 
 def _add_nodes_and_edges(G, data, parent=None):
@@ -51,6 +59,39 @@ class DCTConfig:
         self._domain_mapping = self._load_domain_mapping()
         self._color_mapping = self._load_color_mapping()
         self._dataset_source_mapping = self._load_dataset_source_mapping()
+
+        self.validate_channel_consistency_and_update()
+
+        self.validate_celltype_consistency()
+
+    
+    def validate_channel_consistency_and_update(self):    
+        channels_from_mapping = set()
+        for key, val in self.channel_mapping.items():
+            channels_from_mapping.update(val["channels_kept"].values())
+        channels_from_mapping = sorted(list(channels_from_mapping))
+        channels_from_master_list = sorted(self.master_channels)
+        if channels_from_mapping != channels_from_master_list:
+            logging.warning("Channel mapping and master channels are not consistent. Updating master channels from channel mapping.")
+            self.update_master_channels(list(channels_from_mapping))
+
+    
+    def update_master_channels(self, updated_master_channels):
+        self._master_channels = sorted(updated_master_channels)
+        with open(self.data_folder / "master_channels.yaml", "w") as f:
+            yaml.dump(self._master_channels, f)
+
+    
+    def validate_celltype_consistency(self):
+        ct_from_core_tree = set(flatten_nested_dict(self.core_tree))
+        ct_from_mapping = set([item for ds_map in self._celltype_mapping.values() for item in list(ds_map.values())])
+        core_tree_not_in_mapping = ct_from_core_tree - ct_from_mapping
+        mapping_not_in_core_tree = ct_from_mapping - ct_from_core_tree
+        if core_tree_not_in_mapping:
+            logging.warning("Core tree celltypes not in celltype mapping: {}".format(core_tree_not_in_mapping))
+        if mapping_not_in_core_tree:
+            raise ValueError("Celltype mapping has celltypes not in core tree: {}".format(mapping_not_in_core_tree))
+
 
     @property
     def mapper_dict(self):
@@ -157,7 +198,16 @@ class DCTConfig:
             color_mapping = yaml.load(f, Loader=yaml.FullLoader)
         color_mapping = {k: to_rgb(v) for k, v in color_mapping.items()}
         return color_mapping
-
+    
+    def get_channel_embedding(self, embedding_model_name):
+        """Get the channel embedding from the json file.
+        Embedding model name: "text-embedding-ada-002", "text-embedding-3-large-256", "text-embedding-3-large-1024", "text-embedding-3-large-3072"
+        """
+        with open(self.data_folder / f"marker_embeddings-{embedding_model_name}.json", "r") as f:
+            channel_embedding = json.load(f)
+        channel_embedding["None"] = len(channel_embedding["CK5"]) * [0.0]
+        return channel_embedding
+    
     def plot_celltype_tree(self):
         # Create a directed graph
         G = nx.DiGraph()
