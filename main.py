@@ -56,7 +56,7 @@ def pipeline_main(data_dir, image_fname, segmask):
     mask_path = data_dir / f"pipeline_output/mask/{segmask}"
 
     # Get model channels and cell types
-    model_dir = Path("../model/saved_model_updated")
+    model_dir = Path("../model/saved_model")
     channel_mapping_path = Path("../model/channel_mapping.yaml")
 
     with open(channel_mapping_path, "r") as fh:
