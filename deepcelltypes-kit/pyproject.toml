@@ -12,6 +12,7 @@ description = "A library for the deepcelltypes project."
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
+    "tqdm",
     "pyyaml",
     "numpy",
     "scikit-image",

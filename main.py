@@ -107,10 +107,10 @@ def pipeline_main(data_dir, image_fname, segmask):
 
     mpp = 0.377  # TODO: Get this from metadata
 
-    raw = rescale(raw, mpp / dct_config.STANDARD_MPP_RESOLUTION, preserve_range=True, channel_axis=-1)
+    class_X = rescale(class_X, mpp / dct_config.STANDARD_MPP_RESOLUTION, preserve_range=True, channel_axis=-1)
 
-    mask = rescale(
-        mask,
+    pred = rescale(
+        pred,
         mpp / dct_config.STANDARD_MPP_RESOLUTION,
         order=0,
         preserve_range=True,
