@@ -3,7 +3,7 @@ import scipy as sp
 import tifffile as tff
 from ome_types import from_tiff
 from skimage.measure import regionprops
-from skimage.transform import resize
+from skimage.transform import resize, rescale
 from tensorflow.keras.models import load_model
 import click
 import json
@@ -104,6 +104,19 @@ def pipeline_main(data_dir, image_fname, segmask):
     # the whole-cell masks, which is what we need
     pred = tff.imread(mask_path)[0, 0, ...]
     assert pred.shape == class_X.shape[:-1]
+
+    mpp = 0.377  # TODO: Get this from metadata
+
+    raw = rescale(raw, mpp / dct_config.STANDARD_MPP_RESOLUTION, preserve_range=True, channel_axis=-1)
+
+    mask = rescale(
+        mask,
+        mpp / dct_config.STANDARD_MPP_RESOLUTION,
+        order=0,
+        preserve_range=True,
+        anti_aliasing=False,
+    ).astype(np.int32)
+
 
     X = histogram_normalization(class_X, kernel_size=dct_config.HIST_NORM_KERNEL_SIZE)
 
