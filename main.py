@@ -1,3 +1,4 @@
+import logging
 import numpy as np
 import scipy as sp
 import tifffile as tff
@@ -21,8 +22,15 @@ from deepcelltypes_kit.image_funcs import (
 
 dct_config = DCTConfig()
 
+# TODO: For local compute only, remove prior to push to hubmap
 physical_devices = tf.config.list_physical_devices('GPU')
 tf.config.set_visible_devices(physical_devices[1:],'GPU') # only using gpu1
+tf.config.experimental.set_memory_growth(physical_devices[-1], True)
+
+
+# NOTE: Tensorflow eats stdout and screws up flushing - need logging to undo
+# the tf mess
+logger = logging.getLogger(__name__)
 
 
 @click.command()
@@ -68,7 +76,9 @@ def pipeline_main(data_dir, image_fname, segmask):
     marker_info = {}
 
     # Convert pipeline output image on hubmap to model input
+    logger.info("Loading image...")
     orig_img = tff.imread(data_file).squeeze()
+    logger.info("Done.")
     # Load channel info from metadata
     img_metadata = from_tiff(data_file)
     ch_names = [ch.name for ch in img_metadata.images[0].pixels.channels]
@@ -84,29 +94,36 @@ def pipeline_main(data_dir, image_fname, segmask):
         else:
             channel_mask.append(False)
 
-    print(channel_lst)
-    print(orig_img.shape)
+    logger.info(channel_lst)
+    logger.info(orig_img.shape)
     multiplex_img = np.asarray(orig_img).transpose(1, 2, 0)
+    logger.info(f"multiplex_img: {multiplex_img.shape}")
 
     # Save marker info metadata
     with open("marker_info.json", "w") as fh:
         json.dump(marker_info, fh)
 
+    logger.info("loading model...")
+    ctm = load_model(model_dir, compile=False)
+    logger.info("Done.")
+
     class_X = multiplex_img.astype(np.float32)
-    print("class_X.shape", class_X.shape)
+    logger.info(f"class_X.shape: {class_X.shape}")
     # check master list against channel_lst
     assert not set(channel_lst) - set(dct_config.master_channels)
     # assert len(channel_lst) == class_X.shape[-1]
 
-    ctm = load_model(model_dir, compile=False)
 
     # Segmentation mask. Pipeline produces four channels. The first channel is
     # the whole-cell masks, which is what we need
+    logger.info("Loading mask...")
     pred = tff.imread(mask_path)[0, 0, ...]
+    logger.info("Done.")
     assert pred.shape == class_X.shape[:-1]
 
     mpp = 0.377  # TODO: Get this from metadata
 
+    logger.info("Rescaling images...")
     class_X = rescale(class_X, mpp / dct_config.STANDARD_MPP_RESOLUTION, preserve_range=True, channel_axis=-1)
 
     pred = rescale(
@@ -116,11 +133,13 @@ def pipeline_main(data_dir, image_fname, segmask):
         preserve_range=True,
         anti_aliasing=False,
     ).astype(np.int32)
+    logger.info("Done")
 
 
+    logger.info("Normalizing images...")
     X = histogram_normalization(class_X, kernel_size=dct_config.HIST_NORM_KERNEL_SIZE)
+    logger.info("Done.")
 
-    # this is set up for one batch at a time
     y = pred
     # B, Y, X, C
     X, y = pad_cell(X, y, dct_config.CROP_SIZE)
@@ -132,9 +151,8 @@ def pipeline_main(data_dir, image_fname, segmask):
     label_lst = []
     real_len_lst = []
 
-    model_output = []
-
     total_num_cells = len(props)
+    logger.info("Looping over cells...")
     for prop_idx, prop in enumerate(props):
         curr_cell = prop_idx + 1
         label = prop.label
@@ -143,8 +161,6 @@ def pipeline_main(data_dir, image_fname, segmask):
         self_mask, neighbor_mask = get_neighbor_masks(
             y, cbox, prop.label
         )  # (H, W), (H, W)
-
-        # yield neighbor, cbox, prop.label, int(prop.mean_intensity)
 
         minr, minc, maxr, maxc = cbox
         raw_patch = X[minr:maxr, minc:maxc, :]  # (H, W, C)
@@ -185,7 +201,7 @@ def pipeline_main(data_dir, image_fname, segmask):
         )
         padding_mask[:num_channels, :num_channels] = 1
 
-        padding_mask = np.pad(padding_mask, [[1, 0], [1, 0]])  # for class_token
+        padding_mask = np.pad(padding_mask, [[1, 0], [1, 0]], constant_values=1)  # for class_token
 
         assert app_padded.dtype == np.float32
         assert padding_mask.dtype == np.int32
@@ -197,35 +213,41 @@ def pipeline_main(data_dir, image_fname, segmask):
         label_lst.append(label)
         real_len_lst.append(num_channels)
 
-        # TODO: Make batch_size configurable?
-        batch_size = 500
-        if (curr_cell % batch_size == 0) or (curr_cell == total_num_cells):
-            appearances_list = tf.convert_to_tensor(appearances_list)
-            padding_mask_lst = tf.convert_to_tensor(padding_mask_lst)
-            channel_names_lst = tf.convert_to_tensor(channel_names_lst)
-            label_lst = tf.convert_to_tensor(label_lst)
-            real_len_lst = tf.convert_to_tensor(real_len_lst)
-            domain_name = tf.convert_to_tensor(["CODEX"] * len(label_lst))
+    # TODO: Make batch_size configurable?
+    batch_size = 32
 
-            inp = {
-                "appearances": appearances_list,
-                "channel_padding_masks": padding_mask_lst,
-                "channel_names": channel_names_lst,
-                "cell_idx_label": label_lst,
-                "real_len": real_len_lst,
-                "domain_name": domain_name,
-            }
+    # Convert to arrays
+    # NOTE: tf.convert_to_tensor is orders of magnitude slower with lists
+    # see tensorflow/tensorflow#44555
+    appearances_arr = np.asarray(appearances_list)
+    assert appearances_arr.dtype == np.float32
+    padding_masks_arr = np.asarray(padding_mask_lst)
+    assert padding_masks_arr.dtype == np.int32
+    channel_names_arr = np.asarray(channel_names_lst)
 
-            model_output.append(ctm.predict(inp))
+    logger.info("Converting to tensors...")
+    with tf.device("CPU:0"):
+        appearances_tsr = tf.convert_to_tensor(appearances_arr)
+        padding_mask_tsr = tf.convert_to_tensor(padding_masks_arr)
+        channel_names_tsr = tf.convert_to_tensor(channel_names_arr)
+    logger.info("Done.")
+    logger.info(f"appearances: {appearances_tsr.shape}, {appearances_tsr.dtype}")
+    logger.info(f"channel_padding_masks: {padding_mask_tsr.shape}, {padding_mask_tsr.dtype}")
+    logger.info(f"channel_names: {channel_names_tsr.shape}, {channel_names_tsr.dtype}")
 
-            appearances_list = []
-            padding_mask_lst = []
-            channel_names_lst = []
-            label_lst = []
-            real_len_lst = []
+    logger.info("Creating input...")
+    inp = {
+        "appearances": appearances_tsr,
+        "channel_padding_masks": padding_mask_tsr,
+        "channel_names": channel_names_tsr,
+    }
+    logger.info("Done.")
+
+    logger.info("Predicting...")
+    model_output = ctm.predict(inp, batch_size=batch_size, verbose="auto")
 
     # Unpack batches, extracting only predictions
-    logits = np.concatenate([batch["celltypes"] for batch in model_output])
+    logits = model_output["celltypes"]
     pred_idx = np.argmax(sp.special.softmax(logits, axis=1), axis=1)
     # NOTE: master_cell_types[0] == background
     cell_type_predictions = [
