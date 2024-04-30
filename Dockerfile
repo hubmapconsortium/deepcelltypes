@@ -8,11 +8,6 @@ COPY requirements.txt requirements.txt
 
 RUN python3 -m pip install -r requirements.txt
 
-# a hacky way to pass the github token and install the package
-# COPY env.sh /env.sh
-# ENV BASH_ENV=/env.sh
-# RUN python3 -m pip install git+https://$GITHUB_PAT@github.com/xuefei-wang/deepcelltypes-kit.git
-
 COPY . .
 
 RUN python3 -m pip install deepcelltypes-kit/
