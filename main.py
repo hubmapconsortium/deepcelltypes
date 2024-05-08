@@ -121,7 +121,14 @@ def pipeline_main(data_dir, image_fname, segmask):
     logger.info("Done.")
     assert pred.shape == class_X.shape[:-1]
 
-    mpp = 0.377  # TODO: Get this from metadata
+    # Extract resolution info from image metadata
+    pixel_data = img_metadata.images[0].pixels
+    # Model expects square pixels
+    assert pixel_data.physical_size_x == pixel_data.physical_size_y
+    # Assume pixel resolution in nm | TODO: handle other cases if necessary
+    assert pixel_data.physical_size_x_unit.value == "nm"
+    mpp = pixel_data.physical_size_x / 1000
+    logger.info(f"Image metadata: mpp = {mpp:0.3f} microns")
 
     logger.info("Rescaling images...")
     class_X = rescale(class_X, mpp / dct_config.STANDARD_MPP_RESOLUTION, preserve_range=True, channel_axis=-1)
