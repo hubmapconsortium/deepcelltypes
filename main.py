@@ -201,7 +201,7 @@ def pipeline_main(data_dir, image_fname, segmask):
         )
         padding_mask[:num_channels, :num_channels] = 1
 
-        padding_mask = np.pad(padding_mask, [[1, 0], [1, 0]], constant_values=1)  # for class_token
+        padding_mask = np.pad(padding_mask, [[1, 0], [1, 0]], mode="symmetric")  # for class_token
 
         assert app_padded.dtype == np.float32
         assert padding_mask.dtype == np.int32
