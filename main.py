@@ -22,11 +22,6 @@ from deepcelltypes_kit.image_funcs import (
 
 dct_config = DCTConfig()
 
-# TODO: For local compute only, remove prior to push to hubmap
-physical_devices = tf.config.list_physical_devices('GPU')
-tf.config.set_visible_devices(physical_devices[1:],'GPU') # only using gpu1
-tf.config.experimental.set_memory_growth(physical_devices[-1], True)
-
 
 # NOTE: Tensorflow eats stdout and screws up flushing - need logging to undo
 # the tf mess
