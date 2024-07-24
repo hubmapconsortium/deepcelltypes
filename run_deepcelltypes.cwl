@@ -1,10 +1,10 @@
 class: CommandLineTool
-cwlVersion: v1.2
+cwlVersion: v1.1
 baseCommand: ["python3", "../main.py"]
 
 requirements:
   DockerRequirement:
-    dockerImageId: vanvalenlab/deepcelltypes-hubmap:latest
+    dockerImageId: hubmap/deepcelltypes:latest
     dockerOutputDirectory: /output
 
 inputs:

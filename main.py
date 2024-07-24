@@ -259,10 +259,10 @@ def pipeline_main(data_dir, image_fname, segmask):
     # Save in requested format
     centroids = np.asarray([prop.centroid for prop in props])
     with open("deepcelltypes_predictions.csv", "w") as fh:
-        for i, (centroid, ct) in enumerate(zip(centroids, cell_type_predictions)):
+        print("ID,DeepCellTypes")
+        for i, ct in enumerate(cell_type_predictions):
             lbl_idx = i + 1
-            x, y = centroid
-            fh.write(f"{lbl_idx},{x:.2f},{y:.2f},{ct}\n")
+            print(f"{lbl_idx},{ct}", file=fh)
 
 
 if __name__ == "__main__":
