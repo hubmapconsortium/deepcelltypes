@@ -4,7 +4,7 @@ baseCommand: ["python3", "../main.py"]
 
 requirements:
   DockerRequirement:
-    dockerImageId: hubmap/deepcelltypes:latest
+    dockerPull: hubmap/deepcelltypes:latest
     dockerOutputDirectory: /output
 
 inputs:
