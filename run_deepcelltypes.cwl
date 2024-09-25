@@ -4,7 +4,7 @@ baseCommand: ["python3", "../main.py"]
 
 requirements:
   DockerRequirement:
-    dockerPull: hubmap/deepcelltypes:1.0.1
+    dockerPull: hubmap/deepcelltypes:latest
     dockerOutputDirectory: /output
 
 inputs:
@@ -12,26 +12,14 @@ inputs:
     label: Directory containing pipeline outputs
     type: Directory
     inputBinding:
-      prefix: "--data-dir"
-  image_fname:
-    label: Tiff file containing multiplexed image
-    type: string
-    default: "reg001_expr.ome.tiff"
-    inputBinding:
-      prefix: "--image-fname"
-  segmask:
-    label: Tiff file containing segmentation mask
-    type: string
-    default: "reg001_mask.ome.tiff"
-    inputBinding:
-      prefix: "--segmask"
+      position: 0
 
 outputs:
   celltypes:
     label: CSV file containing cell-type predictions from deepcelltypes
-    type: File
+    type: Directory
     outputBinding:
-      glob: /output/deepcelltypes_predictions.csv
+      glob: deepcelltypes
   marker_info:
     label: JSON file containing metadata about marker panels used for prediction
     type: File

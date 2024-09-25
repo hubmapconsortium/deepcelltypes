@@ -7,3 +7,4 @@ ome_types
 pyyaml
 click
 cwltool
+git+https://github.com/hubmapconsortium/ome-utils@v0.3.4
