@@ -1,24 +1,26 @@
+import json
 import logging
+from argparse import ArgumentParser
+from pathlib import Path
+from typing import List, Tuple
+
 import numpy as np
 import scipy as sp
-import tifffile as tff
-from ome_types import from_tiff
-from skimage.measure import regionprops
-from skimage.transform import resize, rescale
-from tensorflow.keras.models import load_model
-import click
-import json
-
 import tensorflow as tf
-
+import tifffile as tff
 from deepcelltypes_kit.config import DCTConfig
 from deepcelltypes_kit.image_funcs import (
-    histogram_normalization,
-    pad_cell,
+    combine_raw_mask,
     get_crop_box,
     get_neighbor_masks,
-    combine_raw_mask,
+    histogram_normalization,
+    pad_cell,
 )
+from ome_types import from_tiff
+from ome_utils import find_ome_tiffs, get_converted_physical_size
+from skimage.measure import regionprops
+from skimage.transform import rescale, resize
+from tensorflow.keras.models import load_model
 
 dct_config = DCTConfig()
 
@@ -28,35 +30,9 @@ dct_config = DCTConfig()
 logger = logging.getLogger(__name__)
 
 
-@click.command()
-@click.option("--data-dir", default=None, help="Path to hubmap data")
-@click.option(
-    "--image-fname",
-    default=None,
-    help="Filename of the multiplexed .tif image in processed CODEX format."
-)
-@click.option(
-    "--segmask",
-    default=None,
-    help="Path to .tif file containing the segmentation mask."
-)
-def pipeline_main(data_dir, image_fname, segmask):
+def predict(expr_file: Path, mask_file: Path) -> List[Tuple[int, int]]:
     import tensorflow as tf
-    from pathlib import Path
     import yaml
-
-    # Input parsing and validation
-    if data_dir is None:
-        raise ValueError("Specify path to CODEX dataset with --data-dir")
-    data_dir = Path(data_dir)
-    # TODO: Get rid of this - run on all imgs in pipeline_output/expr instead
-    if image_fname is None:
-        raise ValueError("Specify the name of the file, e.g. reg001_X04_Y03.tif")
-    data_file = data_dir / f"pipeline_output/expr/{image_fname}"
-    # TODO: Ditto
-    if segmask is None:
-        raise ValueError("Provide path to segmentation mask as a .tif")
-    mask_path = data_dir / f"pipeline_output/mask/{segmask}"
 
     # Get model channels and cell types
     model_dir = Path("../model/saved_model")
@@ -71,26 +47,27 @@ def pipeline_main(data_dir, image_fname, segmask):
     marker_info = {}
 
     # Convert pipeline output image on hubmap to model input
-    logger.info("Loading image...")
-    orig_img = tff.imread(data_file).squeeze()
+    logger.info("Loading image %s", expr_file)
+    orig_img = tff.imread(expr_file).squeeze()
     logger.info("Done.")
     # Load channel info from metadata
-    img_metadata = from_tiff(data_file)
+    img_metadata = from_tiff(expr_file)
     ch_names = [ch.name for ch in img_metadata.images[0].pixels.channels]
     marker_info["img_marker_panel"] = ch_names
     marker_info["model_marker_panel"] = dct_config.master_channels
     channel_lst = []
     channel_mask = []
     for idx, ch in enumerate(ch_names):
-        key = channel_mapping[ch]
+        key = channel_mapping.get(ch, ch)
         if key in dct_config.master_channels:
             channel_lst.append(key)
             channel_mask.append(True)
         else:
             channel_mask.append(False)
 
-    logger.info(channel_lst)
-    logger.info(orig_img.shape)
+    logger.info("channel_list: %s", channel_lst)
+    logger.info("orig_img.shape: %s", orig_img.shape)
+    logger.info("channel_mask: %s", channel_mask)
     multiplex_img = np.asarray(orig_img).transpose(1, 2, 0)
     logger.info(f"multiplex_img: {multiplex_img.shape}")
 
@@ -108,11 +85,10 @@ def pipeline_main(data_dir, image_fname, segmask):
     assert not set(channel_lst) - set(dct_config.master_channels)
     # assert len(channel_lst) == class_X.shape[-1]
 
-
     # Segmentation mask. Pipeline produces four channels. The first channel is
     # the whole-cell masks, which is what we need
     logger.info("Loading mask...")
-    pred = tff.imread(mask_path)[0, 0, ...]
+    pred = tff.imread(mask_file)[0, 0, ...]
     logger.info("Done.")
     assert pred.shape == class_X.shape[:-1]
 
@@ -126,7 +102,12 @@ def pipeline_main(data_dir, image_fname, segmask):
     logger.info(f"Image metadata: mpp = {mpp:0.3f} microns")
 
     logger.info("Rescaling images...")
-    class_X = rescale(class_X, mpp / dct_config.STANDARD_MPP_RESOLUTION, preserve_range=True, channel_axis=-1)
+    class_X = rescale(
+        class_X,
+        mpp / dct_config.STANDARD_MPP_RESOLUTION,
+        preserve_range=True,
+        channel_axis=-1,
+    )
 
     pred = rescale(
         pred,
@@ -136,7 +117,6 @@ def pipeline_main(data_dir, image_fname, segmask):
         anti_aliasing=False,
     ).astype(np.int32)
     logger.info("Done")
-
 
     logger.info("Normalizing images...")
     X = histogram_normalization(class_X, kernel_size=dct_config.HIST_NORM_KERNEL_SIZE)
@@ -167,9 +147,21 @@ def pipeline_main(data_dir, image_fname, segmask):
         minr, minc, maxr, maxc = cbox
         raw_patch = X[minr:maxr, minc:maxc, :]  # (H, W, C)
 
-        raw_patch = resize(raw_patch, (dct_config.PATCH_RESIZE_SIZE, dct_config.PATCH_RESIZE_SIZE), preserve_range=True)  # (H, W, C)
-        self_mask = resize(self_mask, (dct_config.PATCH_RESIZE_SIZE, dct_config.PATCH_RESIZE_SIZE), preserve_range=True)  # (H, W)
-        neighbor_mask = resize(neighbor_mask, (dct_config.PATCH_RESIZE_SIZE, dct_config.PATCH_RESIZE_SIZE), preserve_range=True)  # (H, W)
+        raw_patch = resize(
+            raw_patch,
+            (dct_config.PATCH_RESIZE_SIZE, dct_config.PATCH_RESIZE_SIZE),
+            preserve_range=True,
+        )  # (H, W, C)
+        self_mask = resize(
+            self_mask,
+            (dct_config.PATCH_RESIZE_SIZE, dct_config.PATCH_RESIZE_SIZE),
+            preserve_range=True,
+        )  # (H, W)
+        neighbor_mask = resize(
+            neighbor_mask,
+            (dct_config.PATCH_RESIZE_SIZE, dct_config.PATCH_RESIZE_SIZE),
+            preserve_range=True,
+        )  # (H, W)
 
         self_mask = (self_mask > 0.5).astype(np.int32)
         neighbor_mask = (neighbor_mask > 0.5).astype(np.int32)
@@ -182,6 +174,7 @@ def pipeline_main(data_dir, image_fname, segmask):
         mask1 = mask.astype(np.float32)
         assert (mask == mask1).all()
 
+        logger.info("raw_patch = %s", raw_patch)
         raw_patch_aug = np.expand_dims(raw_patch[channel_mask, ...], axis=0)
         mask_aug = np.expand_dims(mask1, axis=0)
         app = combine_raw_mask(raw_patch_aug, mask_aug)
@@ -203,7 +196,9 @@ def pipeline_main(data_dir, image_fname, segmask):
         )
         padding_mask[:num_channels, :num_channels] = 1
 
-        padding_mask = np.pad(padding_mask, [[1, 0], [1, 0]], mode="symmetric")  # for class_token
+        padding_mask = np.pad(
+            padding_mask, [[1, 0], [1, 0]], mode="symmetric"
+        )  # for class_token
 
         assert app_padded.dtype == np.float32
         assert padding_mask.dtype == np.int32
@@ -234,7 +229,9 @@ def pipeline_main(data_dir, image_fname, segmask):
         channel_names_tsr = tf.convert_to_tensor(channel_names_arr)
     logger.info("Done.")
     logger.info(f"appearances: {appearances_tsr.shape}, {appearances_tsr.dtype}")
-    logger.info(f"channel_padding_masks: {padding_mask_tsr.shape}, {padding_mask_tsr.dtype}")
+    logger.info(
+        f"channel_padding_masks: {padding_mask_tsr.shape}, {padding_mask_tsr.dtype}"
+    )
     logger.info(f"channel_names: {channel_names_tsr.shape}, {channel_names_tsr.dtype}")
 
     logger.info("Creating input...")
@@ -256,14 +253,29 @@ def pipeline_main(data_dir, image_fname, segmask):
         mapper_dict_reversed[idx + 1] for idx in pred_idx
     ]  # index starts from 1
 
-    # Save in requested format
-    centroids = np.asarray([prop.centroid for prop in props])
-    with open("deepcelltypes_predictions.csv", "w") as fh:
-        print("ID,DeepCellTypes")
-        for i, ct in enumerate(cell_type_predictions):
-            lbl_idx = i + 1
-            print(f"{lbl_idx},{ct}", file=fh)
+    prediction_list = list(enumerate(cell_type_predictions, 1))
+    return prediction_list
+
+
+def main(data_dir: Path):
+    pipeline_output_dir = data_dir / "pipeline_output"
+    expr_files = sorted(find_ome_tiffs(pipeline_output_dir / "expr"))
+    mask_files = sorted(find_ome_tiffs(pipeline_output_dir / "mask"))
+
+    output_path = Path("deepcelltypes")
+    output_path.mkdir(exist_ok=True, parents=True)
+    for expr_file, mask_file in zip(expr_files, mask_files):
+        pred_csv_file = output_path / f"{expr_file.stem}-predictions.csv"
+        predictions = predict(expr_file, mask_file)
+        logger.info("Saving predictions from %s to %s", expr_file, pred_csv_file)
+        with open(pred_csv_file, "w") as fh:
+            for idx, ct in predictions:
+                print(f"{idx},{ct}", file=fh)
 
 
 if __name__ == "__main__":
-    pipeline_main()
+    p = ArgumentParser()
+    p.add_argument("data_dir", type=Path)
+    args = p.parse_args()
+
+    main(args.data_dir)
