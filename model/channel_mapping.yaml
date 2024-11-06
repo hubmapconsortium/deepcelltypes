@@ -7,7 +7,6 @@ CD127: CD127
 CD138: CD138
 CD147: CD147 # missing
 CD15: CD15
-CD152: CD152
 CD154: CD154 # missing
 CD16: CD16
 CD161: CD161 # missing
@@ -43,7 +42,6 @@ CD66: CD66
 CD68: CD68
 CD69: CD69
 CD7: CD7
-CD85j: CD85j
 CD8: CD8
 CD90: CD90
 CD98: CD98
@@ -65,7 +63,6 @@ GATA3: GATA3
 HLA-DR: HLA-Class-2
 HLADR: HLA-Class-2
 Hoechst1: Hoechst # missing, nuclear, could be ignored
-HOECHST1: Hoechst # missing, nuclear, could be ignored
 ITLN1: Intelectin-1
 IgM: IgM
 Ki67: Ki67
