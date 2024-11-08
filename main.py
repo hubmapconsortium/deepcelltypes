@@ -92,13 +92,13 @@ def predict(expr_file: Path, mask_file: Path) -> List[Tuple[int, int]]:
     logger.info("Done.")
     assert pred.shape == class_X.shape[:-1]
 
+    with tff.TiffFile(expr_file) as expr_image:
+        size = get_converted_physical_size(expr_image)
     # Extract resolution info from image metadata
     pixel_data = img_metadata.images[0].pixels
     # Model expects square pixels
-    assert pixel_data.physical_size_x == pixel_data.physical_size_y
-    # Assume pixel resolution in nm | TODO: handle other cases if necessary
-    assert pixel_data.physical_size_x_unit.value == "nm"
-    mpp = pixel_data.physical_size_x / 1000
+    assert size['X'] == size['Y']
+    mpp = size['X'].magnitude
     logger.info(f"Image metadata: mpp = {mpp:0.3f} microns")
 
     logger.info("Rescaling images...")
