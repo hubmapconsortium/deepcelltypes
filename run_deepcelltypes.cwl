@@ -6,6 +6,7 @@ requirements:
   DockerRequirement:
     dockerPull: hubmap/deepcelltypes:latest
     dockerOutputDirectory: /output
+  DockerGpuRequirement: {}
 
 inputs:
   data_dir:
