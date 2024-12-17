@@ -177,7 +177,7 @@ def predict(expr_file: Path, mask_file: Path) -> List[Tuple[int, int]]:
         mask1 = mask.astype(np.float32)
         assert (mask == mask1).all()
 
-        logger.info("raw_patch = %s", raw_patch)
+        # logger.info("raw_patch = %s", raw_patch)
         raw_patch_aug = np.expand_dims(raw_patch[channel_mask, ...], axis=0)
         mask_aug = np.expand_dims(mask1, axis=0)
         app = combine_raw_mask(raw_patch_aug, mask_aug)
