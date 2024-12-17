@@ -1,6 +1,7 @@
 import json
 import logging
 from argparse import ArgumentParser
+from itertools import zip_longest
 from pathlib import Path
 from typing import List, Tuple
 
@@ -57,7 +58,9 @@ def predict(expr_file: Path, mask_file: Path) -> List[Tuple[int, int]]:
     marker_info["model_marker_panel"] = dct_config.master_channels
     channel_lst = []
     channel_mask = []
-    for idx, ch in enumerate(ch_names):
+    for idx, ch in zip_longest(
+        range(orig_img.shape[0]), ch_names, fillvalue="<unknown>"
+    ):
         key = channel_mapping.get(ch, ch)
         if key in dct_config.master_channels:
             channel_lst.append(key)
@@ -97,8 +100,8 @@ def predict(expr_file: Path, mask_file: Path) -> List[Tuple[int, int]]:
     # Extract resolution info from image metadata
     pixel_data = img_metadata.images[0].pixels
     # Model expects square pixels
-    assert size['X'] == size['Y']
-    mpp = size['X'].magnitude
+    assert size["X"] == size["Y"]
+    mpp = size["X"].magnitude
     logger.info(f"Image metadata: mpp = {mpp:0.3f} microns")
 
     logger.info("Rescaling images...")
@@ -269,6 +272,7 @@ def main(data_dir: Path):
         predictions = predict(expr_file, mask_file)
         logger.info("Saving predictions from %s to %s", expr_file, pred_csv_file)
         with open(pred_csv_file, "w") as fh:
+            print("ID,DeepCellTypes_CellType", file=fh)
             for idx, ct in predictions:
                 print(f"{idx},{ct}", file=fh)
 
