@@ -91,7 +91,7 @@ def predict(expr_file: Path, mask_file: Path) -> List[Tuple[int, int]]:
     # Segmentation mask. Pipeline produces four channels. The first channel is
     # the whole-cell masks, which is what we need
     logger.info("Loading mask...")
-    pred = tff.imread(mask_file)[0, 0, ...]
+    pred = np.squeeze(tff.imread(mask_file))
     logger.info("Done.")
     assert pred.shape == class_X.shape[:-1]
 
