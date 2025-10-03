@@ -274,9 +274,9 @@ def map_to_clid(prediction_list: List) -> pd.DataFrame:
     prediction_df = pd.DataFrame({'ID': idxs,
                                   'DeepCellTypes_CellType': deepcelltypes_cells})
 
-    prediction_df['CL_Label'] = prediction_df['DeepCellTypes_CellType'].map(cl_label_map)
-    prediction_df['CL_ID'] = prediction_df['DeepCellTypes_CellType'].map(cl_id_map)
-    prediction_df['CL_ID'] = prediction_df['CL_ID'].fillna('CL:0000000')
+    prediction_df['DeepCellTypes_CL_Label'] = prediction_df['DeepCellTypes_CellType'].map(cl_label_map)
+    prediction_df['DeepCellTypes_CL_ID'] = prediction_df['DeepCellTypes_CellType'].map(cl_id_map)
+    prediction_df['DeepCellTypes_CL_ID'] = prediction_df['CL_ID'].fillna('CL:0000000')
     print(prediction_df)
 
     return prediction_df
@@ -285,7 +285,7 @@ def map_to_clid(prediction_list: List) -> pd.DataFrame:
 def create_cell_type_manifest(prediction_df, outdir):
     cell_type_manifest_dict = {}
 
-    for column_header in ['DeepCellTypes_CellType', 'CL_ID']:
+    for column_header in ['DeepCellTypes_CellType', 'DeepCellTypes_CL_ID']:
         sub_dict = {
             val: int((prediction_df[column_header] == val).sum())
             for val in prediction_df[column_header].unique()
@@ -312,7 +312,6 @@ def main(data_dir: Path):
         predictions_df = map_to_clid(predictions)
         create_cell_type_manifest(predictions_df, output_path)
         predictions_df.to_csv(pred_csv_file)
-    #!TODO! cite hra and cell type manifest
 
 
 if __name__ == "__main__":
