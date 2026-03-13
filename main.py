@@ -268,17 +268,12 @@ def read_clid_mapping():
     return label_to_cl_label, label_to_cl_id
 
 
-def map_to_clid(prediction_list: List) -> pd.DataFrame:
+def map_to_clid(prediction_df: pd.DataFrame) -> pd.DataFrame:
     cl_label_map, cl_id_map = read_clid_mapping()
-    idxs, deepcelltypes_cells = zip(*prediction_list)
-    prediction_df = pd.DataFrame({'ID': idxs,
-                                  'DeepCellTypes_CellType': deepcelltypes_cells})
 
     prediction_df['DeepCellTypes_CL_Label'] = prediction_df['DeepCellTypes_CellType'].map(cl_label_map)
     prediction_df['DeepCellTypes_CL_ID'] = prediction_df['DeepCellTypes_CellType'].map(cl_id_map)
-    prediction_df['DeepCellTypes_CL_ID'] = prediction_df['CL_ID'].fillna('CL:0000000')
-    print(prediction_df)
-
+    prediction_df['DeepCellTypes_CL_ID'] = prediction_df['DeepCellTypes_CL_ID'].fillna('CL:0000000')
     return prediction_df
 
 
@@ -298,6 +293,19 @@ def create_cell_type_manifest(prediction_df, outdir):
         json.dump(cell_type_manifest_dict, f)
 
 
+def write_cl_mapping(prediction_df, outdir):
+    mapping = prediction_df[['DeepCellTypes_CellType', 'DeepCellTypes_CL_ID']].drop_duplicates(subset=['DeepCellTypes_CellType'])
+    mapping.set_index('DeepCellTypes_CellType')
+    mapping_dict = {}
+    for i, j in zip(mapping['DeepCellTypes_CellType'].to_list(), mapping['DeepCellTypes_CL_ID'].to_list()):
+        mapping_dict[i] = j
+    print(mapping)
+    print(mapping_dict)
+    json_path = outdir / 'cl_mapping.json'
+    with open(json_path, 'w') as f:
+        json.dump(mapping_dict, f)
+
+
 def main(data_dir: Path):
     pipeline_output_dir = data_dir / "pipeline_output"
     expr_files = sorted(find_ome_tiffs(pipeline_output_dir / "expr"))
@@ -309,9 +317,13 @@ def main(data_dir: Path):
         pred_csv_file = output_path / f"{expr_file.stem}-predictions.csv"
         predictions = predict(expr_file, mask_file)
         logger.info("Saving predictions from %s to %s", expr_file, pred_csv_file)
-        predictions_df = map_to_clid(predictions)
-        create_cell_type_manifest(predictions_df, output_path)
-        predictions_df.to_csv(pred_csv_file)
+        idxs, deepcelltypes_cells = zip(*predictions)
+        predictions_df = pd.DataFrame({'ID': idxs,
+                                      'DeepCellTypes_CellType': deepcelltypes_cells})
+        predictions_df.to_csv(pred_csv_file, index=False)
+        predictions_df_with_clid = map_to_clid(predictions_df)
+        create_cell_type_manifest(predictions_df_with_clid, output_path)
+        write_cl_mapping(predictions_df_with_clid, output_path)
 
 
 if __name__ == "__main__":
