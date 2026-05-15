@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import List, Tuple
 
 import numpy as np
+import pandas as pd
 import scipy as sp
 import tensorflow as tf
 import tifffile as tff
@@ -260,6 +261,42 @@ def predict(expr_file: Path, mask_file: Path) -> List[Tuple[int, int]]:
     return prediction_list
 
 
+def read_clid_mapping():
+    reference = pd.read_csv("/opt/deepcelltypes-hubmap-crosswalk.csv", header=10)
+
+    label_to_cl = {}
+    for t in zip(reference['Annotation_Label'], reference['CL_Label'], reference['CL_ID']):
+        label_to_cl[t[0]] = (t[1], t[2])
+    # Write to disk
+    with open("cl_mapping.json", "w") as f:
+        json.dump(label_to_cl, f)
+    return label_to_cl
+
+
+def map_to_clid(prediction_df: pd.DataFrame) -> pd.DataFrame:
+    label_to_cl = read_clid_mapping()
+    prediction_df['DeepCellTypes_CL_Label'] = prediction_df['DeepCellTypes_CellType'].map(label_to_cl)[0]
+    prediction_df['DeepCellTypes_CL_ID'] = prediction_df['DeepCellTypes_CellType'].map(label_to_cl)[1]
+    prediction_df['DeepCellTypes_CL_ID'] = prediction_df['DeepCellTypes_CL_ID'].fillna('CL:0000000')
+    return prediction_df
+
+
+def create_cell_type_manifest(prediction_df, outdir):
+    cell_type_manifest_dict = {}
+
+    for column_header in ['DeepCellTypes_CellType', 'DeepCellTypes_CL_ID']:
+        sub_dict = {
+            val: int((prediction_df[column_header] == val).sum())
+            for val in prediction_df[column_header].unique()
+        }
+        # Remove NaN key if it exists
+        sub_dict = {k: v for k, v in sub_dict.items() if not pd.isna(k)}
+        cell_type_manifest_dict[column_header] = sub_dict
+
+    with open(f'{outdir}/cell_type_manifest.json', 'w') as f:
+        json.dump(cell_type_manifest_dict, f)
+
+
 def main(data_dir: Path):
     pipeline_output_dir = data_dir / "pipeline_output"
     expr_files = sorted(find_ome_tiffs(pipeline_output_dir / "expr"))
@@ -271,10 +308,12 @@ def main(data_dir: Path):
         pred_csv_file = output_path / f"{expr_file.stem}-predictions.csv"
         predictions = predict(expr_file, mask_file)
         logger.info("Saving predictions from %s to %s", expr_file, pred_csv_file)
-        with open(pred_csv_file, "w") as fh:
-            print("ID,DeepCellTypes_CellType", file=fh)
-            for idx, ct in predictions:
-                print(f"{idx},{ct}", file=fh)
+        idxs, deepcelltypes_cells = zip(*predictions)
+        predictions_df = pd.DataFrame({'ID': idxs,
+                                      'DeepCellTypes_CellType': deepcelltypes_cells})
+        predictions_df.to_csv(pred_csv_file, index=False)
+        predictions_df_with_clid = map_to_clid(predictions_df)
+        create_cell_type_manifest(predictions_df_with_clid, output_path)
 
 
 if __name__ == "__main__":

@@ -11,3 +11,6 @@ RUN python3 -m pip install -r requirements.txt
 COPY . .
 
 RUN python3 -m pip install deepcelltypes-kit/
+
+RUN curl -L -o /opt/deepcelltypes-hubmap-crosswalk.csv https://cdn.humanatlas.io/digital-objects/ctann/deepcelltypes-hubmap/v1.1/assets/deepcelltypes-hubmap-crosswalk.csv
+
