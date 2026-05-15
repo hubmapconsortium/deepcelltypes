@@ -263,16 +263,20 @@ def predict(expr_file: Path, mask_file: Path) -> List[Tuple[int, int]]:
 
 def read_clid_mapping():
     reference = pd.read_csv("/opt/deepcelltypes-hubmap-crosswalk.csv", header=10)
-    label_to_cl_label = dict(zip(reference['Annotation_Label'], reference['CL_Label']))
-    label_to_cl_id = dict(zip(reference['Annotation_Label'], reference['CL_ID']))
-    return label_to_cl_label, label_to_cl_id
+
+    label_to_cl = {}
+    for t in zip(reference['Annotation_Label'], reference['CL_Label'], reference['CL_ID']):
+        label_to_cl[t[0]] = (t[1], t[2])
+    # Write to disk
+    with open("cl_mapping.json", "w") as f:
+        json.dump(label_to_cl, f)
+    return label_to_cl
 
 
 def map_to_clid(prediction_df: pd.DataFrame) -> pd.DataFrame:
-    cl_label_map, cl_id_map = read_clid_mapping()
-
-    prediction_df['DeepCellTypes_CL_Label'] = prediction_df['DeepCellTypes_CellType'].map(cl_label_map)
-    prediction_df['DeepCellTypes_CL_ID'] = prediction_df['DeepCellTypes_CellType'].map(cl_id_map)
+    label_to_cl = read_clid_mapping()
+    prediction_df['DeepCellTypes_CL_Label'] = prediction_df['DeepCellTypes_CellType'].map(label_to_cl)[0]
+    prediction_df['DeepCellTypes_CL_ID'] = prediction_df['DeepCellTypes_CellType'].map(label_to_cl)[1]
     prediction_df['DeepCellTypes_CL_ID'] = prediction_df['DeepCellTypes_CL_ID'].fillna('CL:0000000')
     return prediction_df
 
@@ -293,19 +297,6 @@ def create_cell_type_manifest(prediction_df, outdir):
         json.dump(cell_type_manifest_dict, f)
 
 
-def write_cl_mapping(prediction_df, outdir):
-    mapping = prediction_df[['DeepCellTypes_CellType', 'DeepCellTypes_CL_ID']].drop_duplicates(subset=['DeepCellTypes_CellType'])
-    mapping.set_index('DeepCellTypes_CellType')
-    mapping_dict = {}
-    for i, j in zip(mapping['DeepCellTypes_CellType'].to_list(), mapping['DeepCellTypes_CL_ID'].to_list()):
-        mapping_dict[i] = j
-    print(mapping)
-    print(mapping_dict)
-    json_path = outdir / 'cl_mapping.json'
-    with open(json_path, 'w') as f:
-        json.dump(mapping_dict, f)
-
-
 def main(data_dir: Path):
     pipeline_output_dir = data_dir / "pipeline_output"
     expr_files = sorted(find_ome_tiffs(pipeline_output_dir / "expr"))
@@ -323,7 +314,6 @@ def main(data_dir: Path):
         predictions_df.to_csv(pred_csv_file, index=False)
         predictions_df_with_clid = map_to_clid(predictions_df)
         create_cell_type_manifest(predictions_df_with_clid, output_path)
-        write_cl_mapping(predictions_df_with_clid, output_path)
 
 
 if __name__ == "__main__":
